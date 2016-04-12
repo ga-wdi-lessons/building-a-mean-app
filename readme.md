@@ -81,6 +81,7 @@ Today we are going to walkthrough adding Angular to a MEN app, by turning our ap
 ## Homework
 <br>
 
+[See instructions in WIKI of whenpresident](https://github.com/ga-wdi-exercises/whenpresident/wiki/Homework#after-the-building-a-mean-app-lesson)
 ---
 
 ## Quiz Questions

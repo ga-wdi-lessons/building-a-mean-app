@@ -4,11 +4,11 @@
 
 ## Adding Angular to Presidents
 
-In this exercise, our goal is to refactor a full stack express app with server side rendered views, into a Single Page App by adding Angular and using our back-end to render `json`.
+In this exercise, our goal is to refactor a full stack express app with server side rendered views, into a Single Page App by adding Angular and using our back-end to render `JSON`.
 
 ### Setup
 
-We are going to start from a specific commit in `WhenPresident`'s history, so go ahead and run the below commands to checkout to the starter code for this exercise:
+We are going to start from a specific point in `WhenPresident`'s history, so go ahead and run the below commands to checkout to the starter code for this exercise:
 
 If you want to start fresh, clone down the repo:
 ```bash
@@ -18,9 +18,12 @@ $ cd whenpresident
 After you clone, or after you're working from your local copy:
 
 ```bash
-$ git checkout c1537cf
-$ git checkout -b angular-starter
+# get the latest changes from github
+$ git fetch --all
+$ git checkout angular-starter
+$ git checkout -b myname-angular
 ```
+> Note: you can also add your fork as a remote or if you're working from your local copy, set ga-wdi-exercises repo as upstream, in order to fetch changes
 
 Great, now that we have our MEN app locally, let's take a few minutes to look around at our app's state and get familiar with the files and directories.
 
@@ -32,7 +35,6 @@ Great, now that we have our MEN app locally, let's take a few minutes to look ar
 ```
 We need to install our dependencies, and configure our database locally
  ```
-
 </details>
 
 ---
@@ -48,7 +50,24 @@ In another tab, let's run our mongo server
 $ mongod
 ```
 
+then create our database and seed it locally:
+
+```bash
+$ mongo
+> use whenpresident
+# In another tab
+$ node db/seed.js
+```
+
 > **Note**: be sure to create and connect to your database if you haven't already
+
+We need to do one more setup step, which is to include an `env.json` file for our login with twitter OAuth to work.
+
+Go ahead and run the following command if you do not already have a `env.json`:
+
+```bash
+$ mv sample.env.json env.json
+```
 
 Now lets start our server and make sure everything works
 
@@ -66,7 +85,7 @@ If there are no errors in the terminal, we can now navigate in our browser to: h
 
 <!-- NHO: TODO: evaluate the turn in talk or dive into walkthrough of starter  -->
 ### Turn and Talk (5 mins)
-
+<br>
 Without writing any code, take 2 minutes to [look through](https://github.com/ga-wdi-exercises/whenpresident/tree/c1537cff04d43de448dc4280711a9e5d92c6de7e) the code and try to determine:
 
 - What parts of app will stay the same
@@ -114,12 +133,12 @@ As well as are currently loading in Angular and its sub packages in `views/candi
 
 > Make sure to install `bower` through `npm` and then use `bower` like `npm` to load packages. **Pro-tip**: remember to use `bower install --save` when installing packages and to add `bower_components` to `.gitignore`
 
-Review Questions:
+**Review Questions**:
 
 <!-- Q: ng-app  -->
 <details>
 <summary>
-**Q**. What is `data-ng-app` and what is it doing?</summary>
+ What is `data-ng-app` and what is it doing?</summary>
 <br>
 ```
 data-ng-app is a directive that initializes our angular-app
@@ -131,7 +150,7 @@ data-ng-app is a directive that initializes our angular-app
 <!-- Q: ui-view  -->
 <details>
 <summary>
-**Q**. What role does `data-ui-view` play in our application?
+ What role does `data-ui-view` play in our application?
 </summary>
 <br>
 ```
@@ -144,7 +163,7 @@ data-ui-view is the placeholder for where all of our angular rendered html templ
 <!-- Q: root route  -->
 <details>
 <summary>
-**Q**. Which route is currently loading our Angular app?
+ Which route is currently loading our Angular app?
 </summary>
 <br>
 ```
@@ -160,12 +179,50 @@ Our root route, "/"
 
 In our first step, we need to configure our app's router, and define a state for our app's `welcome-page`
 
-![Welcome-Page-Diff](./images/added-welcome-page.png)
-
-
+**Questions:**
+<!-- Q: What other component do we need to define   -->
 <details>
 <summary>
-**Q**. What existing file can we modify to serve as our welcome template?
+ If we want to configure our app's router, what additional Angular component do we need to define?
+</summary>
+<br>
+```
+.config
+```
+<br>
+<br>
+</details>
+
+<!-- Q: What dependencies are necessary for our config function   -->
+<details>
+<summary>
+ What dependencies are necessary for our `config` function?
+</summary>
+<br>
+```
+$stateProvider and a Router function
+```
+<br>
+<br>
+</details>
+
+<!-- Q: What is the importance of the first argument for .state? -->
+<details>
+<summary>
+ What is the importance of the first argument for `.state`?
+</summary>
+<br>
+```
+The first argument is the name for our state, in this case "welcome"
+```
+<br>
+<br>
+</details>
+
+<!-- Q: View template  -->
+<details>
+<summary>
+ What existing file can we modify to serve as our welcome template?
 </summary>
 <br>
 ```
@@ -175,13 +232,47 @@ views/app-welcome.hbs --> public/html/candidates-welcome.html
 <br>
 </details>
 
+<!-- Q: Public Assets  -->
+<details>
+<summary>
+ What line in our server's configuration specifies where to look for our app's static assets?
+</summary>
+<br>
+```
+app.use("/assets", express.static("public"));
+
+```
+<br>
+<br>
+</details>
+
+<br>
+![Welcome-Page-Diff](./images/added-welcome-page.png)
+
 ---
 
-### (You-Do) [Add Rudimentary Index Route](https://github.com/ga-wdi-exercises/whenpresident/commit/bfc9247278d8007cf8f1704dc93a3517eaa6d8f0)
+### (You-Do) [Add Index Route](https://github.com/ga-wdi-exercises/whenpresident/commit/bfc9247278d8007cf8f1704dc93a3517eaa6d8f0)
 
+**Steps**:
+- Define a new state for "index"
+- Modify an existing file to be the template rendered at that state
+- Add a link to your "index" state in your welcome page
 
-<!-- Maybe do entire index route  -->
-<!-- https://github.com/ga-wdi-exercises/whenpresident/commit/9f36a80f55e8fe613d39bbda85849e975f32d5a9#diff-f5260081ec80c28a01bd5809279dbfa4R30  -->
+<!-- Index Route Commit Diff  -->
+<details>
+<summary>
+**Hint**: If you are having a tough time getting started, take a peek at the commit diff
+</summary>
+<br>
+![Adds Index Route Commit Diff](./images/adds-index-route1.png)
+<br>
+<br>
+</details>
+
+<br>
+**Bonus**:
+- Create and define a controller for your index state
+- Try populating your view with some hard coded data, don't worry about connecting to our DB just yet
 
 ---
 
@@ -189,27 +280,147 @@ views/app-welcome.hbs --> public/html/candidates-welcome.html
 
 ---
 
-### [Made API Routes for Candidates](https://github.com/ga-wdi-exercises/whenpresident/commit/963c30d6bae15c10d3e0ed327af29e29c374f888)
+### [Makes API Routes for Candidates](https://github.com/ga-wdi-exercises/whenpresident/commit/677b59be5287a70354fd4872e13fd069ed973fe8)
 
-<!-- TODO: add commit diff  -->
+Alright, let's review a little bit about what we want to accomplish when building out the Angular side of our application.  
 
-<!-- TODO: add questions  -->
+So far, we still are using express to serve at least one server-side rendered view, that loads and initializes our Angular app. From there, Angular takes over the view templating and routing throughout our SPA. Also, eventually we want our front-end to be able to sync with our back-end in order to persist data throughout our app.
+
+> How can we do this?
+
+<!-- BE comparison to Rails  -->
+<details>
+<summary>
+**Q**: How did we do this in Rails?
+</summary>
+<br>
+```
+By building out our own API, then making ajax requests from the front-end to our API endpoints in order to keep the data in sync.
+```
+<br>
+<br>
+</details>
+
+<br>
+We need to do exactly this kind of thing with our MEAN app: we need to setup our back-end to have routes that serve JSON.
+
+**Questions**:
+
+<!-- Q: api namespace  -->
+<details>
+<summary>
+Why might it be a good idea to namespace our back-end routes under `api`?
+</summary>
+<br>
+```
+To avoid confusion between routes meant to serve html, and routes whose purpose it is to render our app's data as JSON
+```
+<br>
+<br>
+</details>
+
+<!-- Q: Delete response  -->
+<details>
+<summary>
+What is the significance of the response for our `delete` request?
+</summary>
+<br>
+```
+To provide a clue to the client that the request went through, and the delete was processed
+```
+<br>
+<br>
+</details>
+
+<!-- Q: Update response  -->
+<details>
+<summary>
+What is returned from our `put` request?
+</summary>
+<br>
+```
+A JSON object with our updated candidate's info!
+```
+<br>
+<br>
+</details>
+
+<br>
+In `index.js`: Candidates Index and Show Routes:
+![Index-and-Show-Api-Routes](./images/make-api-routes1.png)
+
+<!-- TODO: change commit to not include logout-->
+
+> **Note**: no need to worry about the route for "logout" (lines 64-69 above)
+
+In `index.js`: Candidates Delete and Update Routes:
+![Delete-and-Update-Api-Routes](./images/make-api-routes2.png)
 
 ---
 
-### [Adds Candidate Factory and Connect Index Controller to DB](https://github.com/ga-wdi-exercises/whenpresident/commit/9f36a80f55e8fe613d39bbda85849e975f32d5a9)
+### (You-Do) [Adds Candidate Factory and Connect Index Controller to DB](https://github.com/ga-wdi-exercises/whenpresident/commit/9f36a80f55e8fe613d39bbda85849e975f32d5a9)
 
-<!-- TODO: add commit diff  -->
+Great now that we have our back-end all setup to support requests from the front-end that will return JSON, let's add our Angular component that will allow us to fetch all that data.
 
-<!-- TODO: add questions  -->
+<!-- Q: Angular Factory  -->
+<details>
+<summary>
+**Q**. What Angular Component do we need to setup in order to get data from our API?
+</summary>
+<br>
+```
+A factory for Candidates!
+```
+<br>
+<br>
+</details>
+
+<br>
+Go ahead and follow the outlined steps to add our app's Index functionality for candidates:
+
+**Steps**:
+
+- Create and define a new "Candidate" factory
+- Pass your factory as an argument to the index controller and use it to fetch for all candidates
+- Replace any references to hard-coded data with data from your DB, and display relevant information about each Candidate in the view
+
+<!-- Candidate Factory and Index Controller Commit Diff  -->
+<details>
+<summary>
+**Hint**: If you are having a tough time getting started, take a peek at the commit diff
+</summary>
+<br>
+<!-- Factory and Controller -->
+`public/js/app.js`
+![Adds-Candidate-Factory-and-Index-Controller](./images/candidates-factory-and-index-controller1.png)
+<!-- Candidates Index View -->
+`public/html/candidates-index.html`
+![Adds-Candidate-Factory-and-Index-Controller](./images/make-candidates-factory-and-index-controller2.png)
+<br>
+<br>
+</details>
 
 ---
 
 ### [Adds HTML5 Mode](https://github.com/ga-wdi-exercises/whenpresident/commit/915bcc840a4b8e8956ade78c6833f130cb460c78)
 
-<!-- TODO: add commit diff  -->
+Next up, we need to configure our app to be a true HTML5 SPA. Part of this process involves cleaning up our url and getting rid of those pesky `#` signs.
 
-<!-- TODO: add questions  -->
+**Questions**:
+
+- What does changing the root route definition to `("/*")` do and why is it important for our app?
+- What is the purpose of `base href`?
+
+In `index.js`: change our app's root route
+![Change Root Url ](./images/adds-html5-mode1.png)
+
+In `public/js/app.js`: turn on HTML5 mode
+![Change Root Url ](./images/adds-html5-mode2.png)
+
+In `views/layout-main.hbs`: add our app's base ref
+![Change Root Url ](./images/adds-html5-mode3.png)
+
+> For further reading: checkout [this link](https://github.com/ga-wdi-lessons/angular-routing#locationprovider) to the `$locationProvider` section in the `uiRouter` class
 
 ---
 
@@ -231,6 +442,8 @@ views/app-welcome.hbs --> public/html/candidates-welcome.html
 
 ### [Adds Candidate Update](https://github.com/ga-wdi-exercises/whenpresident/commit/c9961f23086850fcd45beb85cd375f7c714d8f35)
 
+<!-- NHO: note to self, can demo the importance of body parser via postman  -->
+
 <!-- TODO: add commit diff  -->
 
 <!-- TODO: add questions  -->
@@ -246,7 +459,7 @@ views/app-welcome.hbs --> public/html/candidates-welcome.html
 <!-- TODO: review wrap-up  -->
 Great, now we have completed full CRUD for `candidates` in our MEAN app.
 
-*If we have time*, we have a few more steps to build out our applications desired features:
+**If we have time**, we have a few more steps to build out the rest of our app's desired features:
 
 ---
 
