@@ -77,7 +77,7 @@ Now lets start our server and make sure everything works
 $ nodemon
 ```
 
-If there are no errors in the terminal, we can now navigate in our browser to: http://localhost:3001 to interact with our app.
+If there are no errors in the terminal, we can now navigate in our browser to: `http://localhost:3001` to interact with our app.
 
 ---
 
@@ -581,7 +581,7 @@ We can call an instance method as well:
 
 ### (You-Do) [Adds Candidate Delete](https://github.com/ga-wdi-exercises/whenpresident/commit/331e2649984ef7879796fb766b9322c0a700e8e9)
 
-As we put some of the finishing touches on our app, let's add the functionality to a candidate can "concede".
+As we put some of the finishing touches on our app, let's add the functionality so a candidate can "concede".
 
 **Steps**:
 
