@@ -106,7 +106,7 @@ If this is the diagram for a general request-response cycle in our MEN app:
 
 ## How We’ll Get There
 
-Today we are going to walkthrough adding Angular to [whenpresident](https://github.com/ga-wdi-exercises/whenpresident) into a SPA.
+Today we are going to walkthrough adding Angular to [whenpresident](https://github.com/ga-wdi-exercises/whenpresident)
 
 [Code Walkthrough](angular-walkthrough.md)
 
@@ -114,7 +114,12 @@ Today we are going to walkthrough adding Angular to [whenpresident](https://gith
 
 ## Let’s Review
 
-- Any Questions?
+Take 5 minutes drawing the web sequence of our MEAN stack app at your table:
+
+- Diagram the web sequence of a request-response cycle in this MEAN application
+- Annotate the components involved in each step
+
+**Questions?**
 
 ---
 
