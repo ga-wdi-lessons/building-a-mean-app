@@ -8,14 +8,18 @@
 - Identify how different components of a MEAN app work together
 - Build a simple Express app with data persistence, and dynamic views  
 - Provide an example of a MEAN app
-- Place tools and technologies into big picture
 - Explain when to choose the MEAN stack
 
 ---
 
-## How We Got Here
+## Framing
 <br>
 
+Example of MEAN apps in the wild:
+
+- [Airpair](https://www.airpair.com/)
+- [Open Graph](http://opengraph.io/)
+- [StartHQ](https://starthq.com/signup)
 ---
 
 ### Why Express?
@@ -25,10 +29,6 @@
 
 ### Why Mongo?
 <br>
-
- We've learned a considerable amount of information about relational databases. We join on foreign keys in relational databases in order to query our database. Sometimes these joins can get really expensive to query the database.
-
-When dealing with less complex associations, non relational databases can be more effective. Mongo provides a more flexible, scalable solution for less complex domain models.
 
 MongoDB is an open-source **document database** that provides:
 - High Performance
@@ -52,6 +52,10 @@ Like ActiveRecord for Rails, Mongoose is an ORM we can use to represent data fro
 ## Where We’re Going
 <br>
 
+[When President Solution](http://whenpresident.herokuapp.com)
+
+![MEN app code diagram](https://raw.githubusercontent.com/ga-wdi-lessons/mean-intro/master/images/express-diagram.jpg)
+
 ---
 
 ## Break
@@ -71,11 +75,13 @@ Today we are going to walkthrough adding Angular to a MEN app, by turning our ap
 ## Let’s Review
 <br>
 
+Any Questions?
 ---
 
 ## What’s Next
 <br>
 
+MEAN Deployment
 ---
 
 ## Homework
@@ -91,5 +97,7 @@ Today we are going to walkthrough adding Angular to a MEN app, by turning our ap
 
 ## Further Reading
 <br>
+
+- [MEAN Resources](https://github.com/ericdouglas/MEAN-Learning)
 
 > [Back to Top](readme.md)
