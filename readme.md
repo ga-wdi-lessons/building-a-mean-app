@@ -141,5 +141,6 @@ Today we are going to walkthrough adding Angular to [whenpresident](https://gith
 ## Further Reading
 
 - [MEAN Resources](https://github.com/ericdouglas/MEAN-Learning)
+- [MEAN Stack Tutorial](https://thinkster.io/mean-stack-tutorial)
 
 > [Back to Top](readme.md)
