@@ -136,6 +136,7 @@ Today we are going to walkthrough adding Angular to [whenpresident](https://gith
 - When type of applications are best suited for the MEAN stack?
 - What is HTML5 Mode and how does it affect our angular apps?
 - What is the role of `body-parser` in the request-response cycle?
+
 ---
 
 ## Further Reading
