@@ -332,7 +332,7 @@ Body-Parser is necessary middleware that allows us to access the body of post re
 
 # Added candidate update functionality
 
-> [907cbaf](https://www.github.com/ga-wdi-exercises/whenpresident/commit/907cbaf)
+> [09a6568](https://www.github.com/ga-wdi-exercises/whenpresident/commit/09a6568)
 
 **Questions**:
 
@@ -367,26 +367,24 @@ We can call an instance method as well:
  <br>
 </details>
 
-### [Added candidate update functionality: `index.js`](https://www.github.com/ga-wdi-exercises/whenpresident/blob/907cbaf/index.js)
+### [Added candidate update functionality: `index.js`](https://www.github.com/ga-wdi-exercises/whenpresident/blob/09a6568/index.js)
 ![Added candidate update functionality, index.js](_DIFFSHOTS/added-candidate-update-functionality.index-js.png)
 
-### [Added candidate update functionality: `public/html/candidates-show.html`](https://www.github.com/ga-wdi-exercises/whenpresident/blob/907cbaf/public/html/candidates-show.html)
+### [Added candidate update functionality: `public/html/candidates-show.html`](https://www.github.com/ga-wdi-exercises/whenpresident/blob/09a6568/public/html/candidates-show.html)
 ![Added candidate update functionality, public/html/candidates-show.html](_DIFFSHOTS/added-candidate-update-functionality.public-html-candidates-show-html.png)
 
-### [Added candidate update functionality: `public/js/app.js`](https://www.github.com/ga-wdi-exercises/whenpresident/blob/907cbaf/public/js/app.js)
+### [Added candidate update functionality: `public/js/app.js`](https://www.github.com/ga-wdi-exercises/whenpresident/blob/09a6568/public/js/app.js)
 ![Added candidate update functionality, public/js/app.js](_DIFFSHOTS/added-candidate-update-functionality.public-js-app-js.png)
 
 # Can delete candidate from database
 
-> [b69572d](https://www.github.com/ga-wdi-exercises/whenpresident/commit/b69572d)
+> [c1667dd](https://www.github.com/ga-wdi-exercises/whenpresident/commit/c1667dd)
 
-### [Can delete candidate from database: `index.js`](https://www.github.com/ga-wdi-exercises/whenpresident/blob/b69572d/index.js)
+### [Can delete candidate from database: `index.js`](https://www.github.com/ga-wdi-exercises/whenpresident/blob/c1667dd/index.js)
 ![Can delete candidate from database, index.js](_DIFFSHOTS/can-delete-candidate-from-database.index-js.png)
 
-### [Can delete candidate from database: `public/html/candidates-show.html`](https://www.github.com/ga-wdi-exercises/whenpresident/blob/b69572d/public/html/candidates-show.html)
+### [Can delete candidate from database: `public/html/candidates-show.html`](https://www.github.com/ga-wdi-exercises/whenpresident/blob/c1667dd/public/html/candidates-show.html)
 ![Can delete candidate from database, public/html/candidates-show.html](_DIFFSHOTS/can-delete-candidate-from-database.public-html-candidates-show-html.png)
 
-### [Can delete candidate from database: `public/js/app.js`](https://www.github.com/ga-wdi-exercises/whenpresident/blob/b69572d/public/js/app.js)
+### [Can delete candidate from database: `public/js/app.js`](https://www.github.com/ga-wdi-exercises/whenpresident/blob/c1667dd/public/js/app.js)
 ![Can delete candidate from database, public/js/app.js](_DIFFSHOTS/can-delete-candidate-from-database.public-js-app-js.png)
-
-
