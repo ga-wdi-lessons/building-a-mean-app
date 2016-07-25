@@ -97,10 +97,7 @@ To get a sense of our built out application, let's look at the deployed [When Pr
 
 Playing around with our deployed app, we can see that it is a SPA, and there are no page refreshes, so Angular is doing the heaving lifting with the view. Also pay attention to the url, what's missing?
 
-If this is the diagram for a general request-response cycle in our MEN app:
-![MEN app code diagram](https://raw.githubusercontent.com/ga-wdi-lessons/mean-intro/master/images/express-diagram.jpg)
-
-**Q**. Where does adding Angular fit into this outline?
+**Q**. Where does adding Angular fit into the general request-response lifecycle of a full-stack application?
 
 ---
 
@@ -108,7 +105,7 @@ If this is the diagram for a general request-response cycle in our MEN app:
 
 Today we are going to walkthrough adding Angular to [whenpresident](https://github.com/ga-wdi-exercises/whenpresident)
 
-[Code Walkthrough](angular-walkthrough.md)
+[Code Walkthrough](angular-walkthrough-annotated.md)
 
 ---
 
