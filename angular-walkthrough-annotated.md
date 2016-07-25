@@ -77,7 +77,7 @@ Now lets start our server and make sure everything works
 $ nodemon
 ```
 
-If there are no errors in the terminal, we can now navigate in our browser to: `http://localhost:3001` to interact with our app.
+If there are no errors in the terminal, we can now navigate in our browser to: `http://localhost:3001/candidates` to interact with our app.
 
 ---
 
@@ -85,7 +85,6 @@ If there are no errors in the terminal, we can now navigate in our browser to: `
 
 ---
 
-<!-- NHO: TODO: evaluate the turn in talk or dive into walkthrough of starter  -->
 ### Turn and Talk (5 mins)
 <br>
 Without writing any code, take 2 minutes to [look through](https://github.com/ga-wdi-exercises/whenpresident/tree/c1537cff04d43de448dc4280711a9e5d92c6de7e) the code and try to determine:
@@ -554,29 +553,10 @@ Two-way data-binding in Angular apps is the automatic synchronization of data be
  <br>
 </details>
 
-<!-- Q: alternate syntax for Update -->
-<details>
-<summary>
- What is an alternate syntax to make an `update` call in Angular ?
-</summary>
-<br>
-We can call an instance method as well:
-```
-  vm.update = function (){
-    vm.candidate.$update().then(function(candidate){
-        vm.candiidate = candidate
-      })
-  }
- ```
- <br>
- <br>
-</details>
-
 <br>
 
 ![Adds Update Commit Diff](./images/adds-update.png)
 
-<!-- Demo body parser via update with Postman  -->
 ---
 
 ### (You-Do) [Adds Candidate Delete](https://github.com/ga-wdi-exercises/whenpresident/commit/331e2649984ef7879796fb766b9322c0a700e8e9)
