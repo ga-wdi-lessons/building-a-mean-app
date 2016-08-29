@@ -63,13 +63,6 @@ $ node db/seed.js
 
 > **Note**: be sure to create and connect to your database if you haven't already
 
-We need to do one more setup step, which is to include an `env.json` file for our login with twitter OAuth to work.
-
-Go ahead and run the following command if you do not already have a `env.json`:
-
-```bash
-$ mv sample.env.json env.json
-```
 
 Now lets start our server and make sure everything works
 
