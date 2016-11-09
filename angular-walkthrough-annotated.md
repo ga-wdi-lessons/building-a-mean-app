@@ -7,6 +7,7 @@
 In this exercise, our goal is to refactor a full stack express app with server side rendered views, into a Single Page App by adding Angular and using our back-end to render `JSON`.
 
 Solution code for this walkthrough can be found on the `angular-solution` branch of the [whenpresident repo](https://github.com/ga-wdi-exercises/whenpresident/tree/angular-solution)
+
 ---
 
 ### Setup
@@ -80,7 +81,7 @@ If there are no errors in the terminal, we can now navigate in our browser to: `
 
 Let's take a look at the last commit, ["Added Angular Dependencies"](https://github.com/ga-wdi-exercises/whenpresident/commit/2a97dfb7cc4258d489f318aa09707c0aef97e0ae) to get a sense of our starting point.
 
-We already have a starter file for Angular, `public/js/app.js`, in that file, let's add our initial
+We already have a starter file for Angular, `public/js/app.js`, in that file, let's add our initial module
 
 ```js
 angular
