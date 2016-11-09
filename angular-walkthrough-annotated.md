@@ -6,11 +6,12 @@
 
 In this exercise, our goal is to refactor a full stack express app with server side rendered views, into a Single Page App by adding Angular and using our back-end to render `JSON`.
 
+Solution code for this walkthrough can be found on the `angular-solution` branch of the [whenpresident repo](https://github.com/ga-wdi-exercises/whenpresident/tree/angular-solution)
 ---
 
 ### Setup
 
-We are going to start from a specific point in `WhenPresident`'s history, so go ahead and run the below commands to checkout to the starter code for this exercise:
+We are going to start from the solution code for the Express-Mongoose class, so go ahead and run the below commands to checkout to the starter code for this exercise:
 
 If you want to start fresh, clone down the repo:
 ```bash
@@ -55,14 +56,8 @@ $ mongod
 Then create our database and seed it locally:
 
 ```bash
-$ mongo
-> use whenpresident
-# In another tab
 $ node db/seed.js
 ```
-
-> **Note**: be sure to create and connect to your database if you haven't already
-
 
 Now lets start our server and make sure everything works
 
@@ -78,36 +73,21 @@ If there are no errors in the terminal, we can now navigate in our browser to: `
 
 ---
 
-### Turn and Talk (5 mins)
-<br>
-Without writing any code, take 2 minutes to [look through](https://github.com/ga-wdi-exercises/whenpresident/tree/c1537cff04d43de448dc4280711a9e5d92c6de7e) the code and try to determine:
-
-- What parts of app will stay the same
-- What parts will need to be removed/modified
-- What are some of the files we are going to need for our app
-
----
 
 ## **< data-ng-presidents />**
 
 ---
 
-Let's take a look at the last commit, ["Added Angular Dependencies"](https://github.com/ga-wdi-exercises/whenpresident/commit/c1537cff04d43de448dc4280711a9e5d92c6de7e) to get a sense of our starting point.
+Let's take a look at the last commit, ["Added Angular Dependencies"](https://github.com/ga-wdi-exercises/whenpresident/commit/2a97dfb7cc4258d489f318aa09707c0aef97e0ae) to get a sense of our starting point.
 
-We already have a starter file for Angular, `public/js/app.js`, with our initial module defined:
+We already have a starter file for Angular, `public/js/app.js`, in that file, let's add our initial
 
 ```js
-"use strict";
-
-(function(){
-
-  angular
-  .module("candidates", [
+angular
+  .module("whenPresident", [
     "ui.router",
     "ngResource"
-  ]);
-
-})();
+  ])
 ```
 
 As well as are currently loading in Angular and its sub packages in `views/candidates.hbs`
@@ -122,10 +102,6 @@ As well as are currently loading in Angular and its sub packages in `views/candi
   <main data-ui-view></main>
 </div>
 ```
-
-> **Note**: If you want to work with this app offline, you can use `bower` to load front end asset libraries. See [this commit](https://github.com/ga-wdi-exercises/whenpresident/commit/656343c9db904aca407d9e7aa5caf7945277ea53) for more app configuration.
-
-> Make sure to install `bower` through `npm` and then use `bower` like `npm` to load packages. **Pro-tip**: remember to use `bower install --save` when installing packages and to add `bower_components` to `.gitignore`
 
 **Review Questions**:
 
@@ -169,7 +145,7 @@ Our root route, "/"
 
 ---
 
-### [Adds Welcome Page](https://github.com/ga-wdi-exercises/whenpresident/commit/d56558786fecd844747fcba1f19f501f71ce73d5)
+### [Adds Welcome Page](https://github.com/ga-wdi-exercises/whenpresident/commit/039ef225db7ca933a72e3e587fd616e9242dd837)
 
 In our first step, we need to configure our app's router, and define a state for our app's `welcome-page`
 
@@ -213,19 +189,6 @@ The first argument is the name for our state, in this case "welcome"
 <br>
 </details>
 
-<!-- Q: View template  -->
-<details>
-<summary>
- What existing file can we modify to serve as our welcome template?
-</summary>
-<br>
-```
-views/app-welcome.hbs --> public/html/candidates-welcome.html
-```
-<br>
-<br>
-</details>
-
 <!-- Q: Public Assets  -->
 <details>
 <summary>
@@ -241,11 +204,12 @@ app.use("/assets", express.static("public"));
 </details>
 
 <br>
-![Welcome-Page-Diff](./images/added-welcome-page.png)
+
+![Welcome-Page-Diff](./images/adds-welcome-page.png)
 
 ---
 
-### (You-Do) [Adds Index Route](https://github.com/ga-wdi-exercises/whenpresident/commit/bfc9247278d8007cf8f1704dc93a3517eaa6d8f0)
+### [Adds Index Route](https://github.com/ga-wdi-exercises/whenpresident/commit/fa68cc105b67527c4986a721b51358dc16d82e2c)
 
 **Steps**:
 - Define a new state for "index"
@@ -258,7 +222,7 @@ app.use("/assets", express.static("public"));
 **Hint**: If you are having a tough time getting started, take a peek at the commit diff
 </summary>
 <br>
-![Adds Index Route Commit Diff](./images/adds-index-route1.png)
+![Adds Index Route Commit Diff](./images/adds-index-route.png)
 <br>
 <br>
 </details>
@@ -274,7 +238,7 @@ app.use("/assets", express.static("public"));
 
 ---
 
-### [Makes API Routes for Candidates](https://github.com/ga-wdi-exercises/whenpresident/commit/677b59be5287a70354fd4872e13fd069ed973fe8)
+### [Makes API Routes for Candidates](https://github.com/ga-wdi-exercises/whenpresident/commit/a4207981999f0c9d3544aa5173b0c7ce7d6d4f7a)
 
 Alright, let's review a little bit about what we want to accomplish when building out the Angular side of our application.  
 
@@ -341,16 +305,14 @@ A JSON object with our updated candidate's info!
 
 <br>
 In `index.js`: Candidates `Index` and `Show` Routes:
-![Index-and-Show-Api-Routes](./images/make-api-routes1.png)
-
-> **Note**: no need to worry about the route for "/logout" (lines 64-69 above)
+![Index-and-Show-Api-Routes](./images/api-index-show.png)
 
 In `index.js`: Candidates `Delete` and `Update` Routes:
-![Delete-and-Update-Api-Routes](./images/make-api-routes2.png)
+![Delete-and-Update-Api-Routes](./images/api-CUD.png)
 
 ---
 
-### (You-Do) [Adds Candidate Factory and Connect Index Controller to DB](https://github.com/ga-wdi-exercises/whenpresident/commit/9f36a80f55e8fe613d39bbda85849e975f32d5a9)
+### [Adds Candidate Factory and Connect Index Controller to DB](https://github.com/ga-wdi-exercises/whenpresident/commit/c8f4b58a7bf4cf419e3272a737b812bb767649c7)
 
 Great now that we have our back-end all setup to support requests from the front-end that will return JSON, let's add our Angular component that will allow us to fetch all that data.
 
@@ -385,134 +347,63 @@ Go ahead and follow the outlined steps to add our app's Index functionality for 
 <br>
 <!-- Factory and Controller -->
 `public/js/app.js`
-![Adds-Candidate-Factory-and-Index-Controller](./images/candidates-factory-and-index-controller1.png)
+![Adds-Candidate-Factory-and-Index-Controller](./images/index-ctrl.png)
 <!-- Candidates Index View -->
-`public/html/candidates-index.html`
-![Adds-Candidate-Factory-and-Index-Controller](./images/make-candidates-factory-and-index-controller2.png)
+`public/js/ng-views/index.html`
+![Adds-Candidate-Factory-and-Index-Controller](./images/index-view.png)
 <br>
 <br>
 </details>
 
 ---
 
-### [Adds HTML5 Mode](https://github.com/ga-wdi-exercises/whenpresident/commit/915bcc840a4b8e8956ade78c6833f130cb460c78)
-
-Next up, we need to configure our app to be a true HTML5 SPA. Part of this process involves cleaning up our url and getting rid of those pesky `#` signs.
-
-**Questions**:
-
-<!-- Q. Root Route  -->
-<details>
-<summary>
- What does changing the root route definition to `("/*")` do and why is it important for our app?
-</summary>
-<br>
-```
-We add the wildcard to our route, the `*`, so that all combinations of routes hit via the url manually will trigger our Angular SPA and allow us to use Angular's `html5Mode` to take over routing
-```
-<br>
-<br>
-</details>
-
-<!-- Q. Base Href  -->
-<details>
-<summary>
- What is the purpose of adding `base href`?
-</summary>
-<br>
-```
-Adding the `base href` tag tells our app the base location from which links on a page should be made
-```
-<br>
-<br>
-</details>
-
-<br>  
-In `index.js`: change our app's root route
-![Change Root Url ](./images/adds-html5-mode1.png)
-
-In `public/js/app.js`: turn on HTML5 mode
-![Change Root Url ](./images/adds-html5-mode2.png)
-
-In `views/layout-main.hbs`: add our app's base ref
-![Change Root Url ](./images/adds-html5-mode3.png)
-
-> For further reading: checkout [this link](https://github.com/ga-wdi-lessons/angular-routing#locationprovider) to the `$locationProvider` section in the `uiRouter` class
-
----
-
-### [Adds Redirect to Root Route](https://github.com/ga-wdi-exercises/whenpresident/commit/a8111764bbb0641bd2f26b33932f85256a731c63)
-
-Continuing with the work with our app's routes, we need a way to redirect any request not defined in our app's states to a default state
-
-**Questions**:
-
-<!-- Q. $urlRouterProvider.otherwise -->
-<details>
-<summary>
- What is the importance of the argument to `$urlRouterProvider.otherwise`?
-</summary>
-<br>
-```
-The url to redirect to if any request does not match our app's defined states
-```
-<br>
-<br>
-</details>
-
-<!-- Q. $urlRouterProvider.otherwise -->
-<details>
-<summary>
-  If you had to guess, when is `$urlRouterProvider` activated?
-</summary>
-<br>
-```
-$urlRouterProvider is activated any time a state transition is made
-```
-<br>
-<br>
-</details>
-
-<br>
-
-![adds-redirect-to-root-route](./images/adds-redirect-to-root-route.png)
-
----
-
-### (You-Do) [Adds Show Route](https://github.com/ga-wdi-exercises/whenpresident/commit/48cf115b7847c8d1601aeff2a23cc5cd0ad7fb5a)
+### [Adds Show Route](https://github.com/ga-wdi-exercises/whenpresident/commit/bd3ecd8d54398bd614c1fe1261e71d4eb1cbb57e)
 
 Now that our app is behaving more like a SPA, let's add support for the Show Route by defining another state.
 
 **Steps**:
 
 - Create a new state definition for `show`
--  Delete `views/candidates-show.hbs` and create a template to be rendered when we are at our `show` state
+-  Delete `views/show.hbs` and create a template to be rendered when we are at our `show` state
 - Define a new controller for `show`, make the appropriate query and display the correct data in the view
 
-**Bonus**:
+In `public/js/ng-views/show.html`: We need to add a `show` view to display information about a candidate
+![Adds Show Route1](./images/show-view.png)
 
-- In your server-side root route definition, query through all the documents for candidates to define a `isCurrentUser` property that should only be true for the signed in user
-- Use the `isCurrentUser` field to hide / show appropriate content if the current user is the candidate
-  - Create the UI component to add a position to a candidate
-
-In `index.js`: We set the value for `isCurrentUser` for all candidates
-![Adds Show Route 1](./images/adds-show-route1.png)
-> **Note**: `.lean()` is a method that takes a mongoose object and returns a json object. `.exec()` is necessary to run whenever you use `.lean`
-
-In `public/html/candidates-show.html`: We need to add a `show` view to display information about a candidate
-![Adds Show Route 2](./images/adds-show-route2.png)
-
-> **Note**: Don't worry about the logic in the view with`isCurrentUser`, or supporting the ability to add positions just yet
 
 In `public/js/app.js`: We need to define a new state, controller, template, and support the query for show
-![Adds Show Route 3](./images/adds-show-route3.png)
+![Adds Show Route2](./images/show-ctrl.png)
 
 Finally, we can delete our `views/candidates-show.hbs` file since Angular will be handling our show view from here on out.
-![Adds Show Route 4](./images/adds-show-route4.png)
 
 ---
 
-### [Adds Candidate Update](https://github.com/ga-wdi-exercises/whenpresident/commit/c9961f23086850fcd45beb85cd375f7c714d8f35)
+### [Adds Create Functionality](https://github.com/ga-wdi-exercises/whenpresident/commit/e787c60a8d349a09d94447e42deedf0fa64f4196)
+
+Let's continue building out CRUD functionality, by adding the ability to create a new Candidate...
+
+**Steps**:
+
+- Update a the `index` view to include a form to create a new candidate
+- Update the index controller to add a definition for our `create` method
+  - It should persist the new candidate to the database
+  - Take the user to the new candidate's show page after it is saved
+- Update the create route in `index.js` to pass in `req.body` not `req.body.candidate`
+- Change our app's body-parser configuration to use JSON
+
+In `public/js/ng-views/index.html`: We need to add some UI
+![Adds Create Route](./images/create-view.png)
+
+
+In `public/js/app.js`: We need to update the index controller to add a definition for our `create` method
+![Adds Create Route2](./images/create-ctrl.png)
+
+Finally, we need to update the route in `index.js`:
+![Adds Create Route3](./images/create-server.png)
+
+---
+
+### [Adds Candidate Update](https://github.com/ga-wdi-exercises/whenpresident/commit/0b2b1546215e7e3cd6af2f6a14c30404f78845f2)
 
 Moving onto the U in CRUD, let's build out our app's update functionality.
 
@@ -548,20 +439,19 @@ Two-way data-binding in Angular apps is the automatic synchronization of data be
 
 <br>
 
-![Adds Update Commit Diff](./images/adds-update.png)
+![Adds Update Commit Diff](./images/update.png)
 
 ---
 
-### (You-Do) [Adds Candidate Delete](https://github.com/ga-wdi-exercises/whenpresident/commit/331e2649984ef7879796fb766b9322c0a700e8e9)
+### [Adds Candidate Destroy](https://github.com/ga-wdi-exercises/whenpresident/commit/1f63608bb0d5f0712febf4b965c40c1568debff4)
 
 As we put some of the finishing touches on our app, let's add the functionality so a candidate can "concede".
 
 **Steps**:
 
-- Modify the "concede" button in `candiates-show.html` to run an `update` method on click
-- Define an `update` method in your `candShowCtrl` in `app.js`
-- Add `$window` as a dependency to your `candShowCtrl` and make sure to pass it into your function
-- Replace `$window.location` with the root route to trigger a page reload
+- Modify the "concede" button in `show.html` to run an `update` method on click
+- Define an `update` method in your `showCtrl` in `app.js`
+- Pass in `$state` to your show controller than use it to redirect the user to the index root after deletion
 
 <!-- Delete Commit Diff -->
 <details>
@@ -569,7 +459,7 @@ As we put some of the finishing touches on our app, let's add the functionality 
  **Hint**: If you're having trouble getting started, take a peek at the commit diff
 </summary>
 <br>
-![Adds Candidate Delete](./images/adds-candidate-delete.png)
+![Adds Candidate Delete](./images/destroy.png)
  <br>
  <br>
 </details>
@@ -582,21 +472,90 @@ Great, now we have completed full CRUD for `candidates` in our MEAN app.
 
 ---
 
-## **(Bonus)** CRD for Positions
-<br>
-**[Can Add a New Position](https://github.com/ga-wdi-exercises/whenpresident/commit/d3374a15b00e4a71ad7104c2b2f12178a01895d0)**
+## **(Bonus)** Clean Routes
 
-**[Can Delete Positions](https://github.com/ga-wdi-exercises/whenpresident/commit/c989c50eab587766456eae349acf3e71a6e6ed49)**
+
+### [Adds HTML5 Mode](https://github.com/ga-wdi-exercises/whenpresident/commit/8cf8fb0ce9ebdb1516940fc62d31cd3aae8dd433)
+
+Next up, we need to configure our app to be a true HTML5 SPA. Part of this process involves cleaning up our url and getting rid of those pesky `#` signs.
+
+**Questions**:
+
+<!-- Q. Root Route  -->
+<details>
+<summary>
+ What does changing the root route definition to `("/*")` do and why is it important for our app?
+</summary>
+<br>
+```
+We add the wildcard to our route, the `*`, so that all combinations of routes hit via the url manually will trigger our Angular SPA and allow us to use Angular's `html5Mode` to take over routing
+```
+<br>
+<br>
+</details>
+
+<!-- Q. Base Href  -->
+<details>
+<summary>
+ What is the purpose of adding `base href`?
+</summary>
+<br>
+```
+Adding the `base href` tag tells our app the base location from which links on a page should be made
+```
+<br>
+<br>
+</details>
+
+<br>  
+In `index.js`: change our app's root route
+![Change Root Url ](./images/html5-server.png)
+
+In `public/js/app.js`: turn on HTML5 mode
+
+![Change Root Url ](./images/html5-angular.png)
+
+In `views/layout-main.hbs`: add our app's base ref
+
+> For further reading: checkout [this link](https://github.com/ga-wdi-lessons/angular-routing#locationprovider) to the `$locationProvider` section in the `uiRouter` class
 
 ---
 
-## **(Double Bonus)** Add User Endorsements
+### [Adds Redirect to Root Route](https://github.com/ga-wdi-exercises/whenpresident/commit/f1d4585aa70a0ee76ec7b4f960123f3aac0fd476)
+
+Continuing with the work with our app's routes, we need a way to redirect any request not defined in our app's states to a default state
+
+**Questions**:
+
+<!-- Q. $urlRouterProvider.otherwise -->
+<details>
+<summary>
+ What is the importance of the argument to `$urlRouterProvider.otherwise`?
+</summary>
 <br>
-**[Adds Endorsement Schema](https://github.com/ga-wdi-exercises/whenpresident/commit/607b73e592d7b7523cd966950bc4def4d752a009)**
+```
+The url to redirect to if any request does not match our app's defined states
+```
+<br>
+<br>
+</details>
 
-**[Adds Endorsements](https://github.com/ga-wdi-exercises/whenpresident/commit/69044912daca740e4379b818813ff84fc0807dee)**
+<!-- Q. $urlRouterProvider.otherwise -->
+<details>
+<summary>
+  If you had to guess, when is `$urlRouterProvider` activated?
+</summary>
+<br>
+```
+$urlRouterProvider is activated any time a state transition is made
+```
+<br>
+<br>
+</details>
 
-**[Can Endorse a Candidate Only Once](https://github.com/ga-wdi-exercises/whenpresident/commit/6885aed6efa59aefe1820003d9be8ea34898c10d)**
+<br>
+
+![adds-redirect-to-root-route](./images/redirect-root.png)
 
 ---
 > [Back to Main](readme.md)

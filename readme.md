@@ -109,26 +109,9 @@ Today we are going to walkthrough adding Angular to [whenpresident](https://gith
 
 ---
 
-## Let’s Review
-
-Take 5 minutes drawing the web sequence of our MEAN stack app at your table:
-
-- Diagram the web sequence of a request-response cycle in this MEAN application
-- Annotate the components involved in each step
-
-**Questions?**
-
----
-
 ## What’s Next
 
 - [Deploying a MEAN App](https://github.com/ga-wdi-lessons/deploy-MEAN-app)
-
----
-
-## Homework
-
-- [Finish Candidates CRUD](https://github.com/ga-wdi-exercises/whenpresident/wiki/Homework#after-the-building-a-mean-app-lesson)
 
 ---
 
