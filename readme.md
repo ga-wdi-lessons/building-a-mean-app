@@ -70,7 +70,7 @@ Like ActiveRecord for Rails, Mongoose is an ORM used to represent data from a Mo
 <!-- Q: Why Angular  -->
 <details>
 <summary>
- **Q**. Why use Angular?
+ <strong>Why use Angular?</strong>
 </summary>
 <br>
 
