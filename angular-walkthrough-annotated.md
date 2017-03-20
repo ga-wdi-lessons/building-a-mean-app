@@ -195,16 +195,8 @@ The first argument is the name for our state, in this case "welcome"
 <summary>
  What line in our server's configuration specifies where to look for our app's static assets?
 </summary>
-<br>
-```
 app.use("/assets", express.static("public"));
-
-```
-<br>
-<br>
 </details>
-
-<br>
 
 ![Welcome-Page-Diff](./images/adds-welcome-page.png)
 
