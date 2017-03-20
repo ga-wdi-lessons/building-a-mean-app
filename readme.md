@@ -17,7 +17,7 @@
 
 So far we've studied Express, Mongo, Mongoose, and Angular in isolation, as well as have learned how to build a simple MEN app.
 
-Today we'll be expanding on these subjects and learn how they fit together by building a MEAN stack app.
+Today we'll complete the MEAN stack by adding Angular to `WhenPresident.`
 
 The term MEAN was coined by a developer at Mongo in a [blog post](http://blog.mongodb.org/post/49262866911/the-mean-stack-mongodb-expressjs-angularjs-andMEAN) discussing his team's workflow. His insights are as follows:
 
@@ -34,12 +34,10 @@ Let's review the use cases for each component:
 <!-- Q: Why Express  -->
 <details>
 <summary>
- **Q**. Why use Express?
+<strong> Why use Express?</strong>
 </summary>
 <br>
-```
 Express is a minimal and flexible Node.js web application framework that provides a robust set of features for building web apps. Express works with a myriad of HTTP utility methods and middleware that allows developers to create robust APIs quickly and easily
- ```
  <br>
  <br>
 </details>
@@ -47,12 +45,11 @@ Express is a minimal and flexible Node.js web application framework that provide
 <!-- Q: Why Mongo  -->
 <details>
 <summary>
- **Q**. Why use Mongo?
+<strong> Why use Mongo?</strong>
 </summary>
 <br>
-```
+
 MongoDB is an open-source document database that provides high performance, high availability, and automatic scaling
- ```
  <br>
  <br>
 </details>
@@ -60,12 +57,12 @@ MongoDB is an open-source document database that provides high performance, high
 <!-- Q: Why Mongoose  -->
 <details>
 <summary>
- **Q**. Why use Mongoose?
+<strong> Why use Mongoose? </strong>
 </summary>
 <br>
-```
+
 Like ActiveRecord for Rails, Mongoose is an ORM used to represent data from a Mongo database as models in a Javascript back-end. This makes performing CRUD actions to collections and documents in our DB easier.
- ```
+
  <br>
  <br>
 </details>
@@ -73,12 +70,12 @@ Like ActiveRecord for Rails, Mongoose is an ORM used to represent data from a Mo
 <!-- Q: Why Angular  -->
 <details>
 <summary>
- **Q**. Why use Angular?
+ <strong>Why use Angular?</strong>
 </summary>
 <br>
-```
+
 AngularJS is a robust front-end framework that makes it possible to easily and quickly build Single Page Applications. It has lots of functionality built in for rendering data, and swapping views in and out to give the impression of having multiple pages. It is fully extensible and works well with other libraries.
- ```
+
  <br>
  <br>
 </details>
@@ -103,7 +100,7 @@ Playing around with our deployed app, we can see that it is a SPA, and there are
 
 ## How We’ll Get There
 
-Today we are going to walkthrough adding Angular to [whenpresident](https://github.com/ga-wdi-exercises/whenpresident)
+ You have already created a MEN app with WhenPresident. We are now going to walkthrough adding Angular to the app.  [whenpresident](https://github.com/ga-wdi-exercises/whenpresident)
 
 [Code Walkthrough](angular-walkthrough-annotated.md)
 

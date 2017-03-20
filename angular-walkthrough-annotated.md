@@ -6,7 +6,7 @@
 
 In this exercise, our goal is to refactor a full stack express app with server side rendered views, into a Single Page App by adding Angular and using our back-end to render `JSON`.
 
-Solution code for this walkthrough can be found on the `angular-solution` branch of the [whenpresident repo](https://github.com/ga-wdi-exercises/whenpresident/tree/angular-solution)
+Solution code for this walkthrough can be found on the `angular-solution` branch of the [WhenPresident repo](https://github.com/ga-wdi-exercises/whenpresident/tree/angular-solution)
 
 ---
 
@@ -16,29 +16,21 @@ We are going to start from the solution code for the Express-Mongoose class, so 
 
 If you want to start fresh, clone down the repo:
 ```bash
-$ git clone git@github.com:ga-wdi-exercises/whenpresident.git
+$ git clone https://github.com/ga-wdi-exercises/whenpresident
 $ cd whenpresident
-```
-After you clone, or after you're working from your local copy:
-
-```bash
-# get the latest changes from github
-$ git fetch --all
 $ git checkout angular-starter
-$ git checkout -b myname-angular
 ```
-> Note: you can also add your fork as a remote or if you're working from your local copy, set ga-wdi-exercises repo as upstream, in order to fetch changes
 
 Great, now that we have our MEN app locally, let's take a few minutes to look around at our app's state and get familiar with the files and directories.
 
 <details>
 <summary>
-**Q**. If we just cloned down an express app, what else do we need to run to complete our setup?
+**Q**. If we just cloned down an Express app, what else do we need to run to complete our setup?
 </summary>
 <br>
-```
+
 We need to install our dependencies, and configure our database locally
- ```
+
 </details>
 
 ---
@@ -81,7 +73,7 @@ If there are no errors in the terminal, we can now navigate in our browser to: `
 
 Let's take a look at the last commit, ["Added Angular Dependencies"](https://github.com/ga-wdi-exercises/whenpresident/commit/2a97dfb7cc4258d489f318aa09707c0aef97e0ae) to get a sense of our starting point.
 
-We already have a starter file for Angular, `public/js/app.js`, in that file, let's add our initial module
+We already have a starter file for Angular, `public/js/app.js`, in that file we have our initial module:
 
 ```js
 angular
@@ -91,7 +83,7 @@ angular
   ])
 ```
 
-As well as are currently loading in Angular and its sub packages in `views/candidates.hbs`
+We also loaded in Angular and its sub packages in `views/candidates.hbs`
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular.min.js"></script>
@@ -99,7 +91,7 @@ As well as are currently loading in Angular and its sub packages in `views/candi
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
 <script src="/assets/js/app.js"></script>
 
-<div data-ng-app="candidates">
+<div data-ng-app="whenPresident">
   <main data-ui-view></main>
 </div>
 ```
@@ -111,9 +103,7 @@ As well as are currently loading in Angular and its sub packages in `views/candi
 <summary>
  What is `data-ng-app` and what is it doing?</summary>
 <br>
-```
 data-ng-app is a directive that initializes our angular-app
- ```
 <br>
 <br>
 </details>
@@ -124,9 +114,7 @@ data-ng-app is a directive that initializes our angular-app
  What role does `data-ui-view` play in our application?
 </summary>
 <br>
-```
 data-ui-view is the placeholder for where all of our angular rendered html templates will go
- ```
  <br>
  <br>
 </details>
@@ -137,9 +125,7 @@ data-ui-view is the placeholder for where all of our angular rendered html templ
  Which route is currently loading our Angular app?
 </summary>
 <br>
-```
 Our root route, "/"
- ```
 <br>
 <br>
 </details>
@@ -157,9 +143,9 @@ In our first step, we need to configure our app's router, and define a state for
  If we want to configure our app's router, what additional Angular component do we need to define?
 </summary>
 <br>
-```
+
 .config
-```
+
 <br>
 <br>
 </details>
@@ -170,9 +156,9 @@ In our first step, we need to configure our app's router, and define a state for
  What dependencies are necessary for our `config` function?
 </summary>
 <br>
-```
+
 $stateProvider and a Router function
-```
+
 <br>
 <br>
 </details>
@@ -183,9 +169,9 @@ $stateProvider and a Router function
  What is the importance of the first argument for `.state`?
 </summary>
 <br>
-```
+
 The first argument is the name for our state, in this case "welcome"
-```
+
 <br>
 <br>
 </details>
@@ -195,16 +181,8 @@ The first argument is the name for our state, in this case "welcome"
 <summary>
  What line in our server's configuration specifies where to look for our app's static assets?
 </summary>
-<br>
-```
 app.use("/assets", express.static("public"));
-
-```
-<br>
-<br>
 </details>
-
-<br>
 
 ![Welcome-Page-Diff](./images/adds-welcome-page.png)
 
@@ -218,26 +196,9 @@ app.use("/assets", express.static("public"));
 - Add a link to your "index" state in your welcome page
 
 <!-- Index Route Commit Diff  -->
-<details>
-<summary>
-**Hint**: If you are having a tough time getting started, take a peek at the commit diff
-</summary>
-<br>
-![Adds Index Route Commit Diff](./images/adds-index-route.png)
-<br>
-<br>
-</details>
 
-<br>
-**Bonus**:
-- Create and define a controller for your index state
-- Try populating your view with some hard coded data, don't worry about connecting to our DB just yet
+![Adds Index Route Commit Diff](images/adds-index-route.png)
 
----
-
-## Break (10 mins)
-
----
 
 ### [Makes API Routes for Candidates](https://github.com/ga-wdi-exercises/whenpresident/commit/a4207981999f0c9d3544aa5173b0c7ce7d6d4f7a)
 
@@ -253,9 +214,7 @@ So far, we still are using express to serve at least one server-side rendered vi
 **Q**: How did we do this in Rails?
 </summary>
 <br>
-```
 By building out our own API, then making ajax requests from the front-end to our API endpoints in order to keep the data in sync.
-```
 <br>
 <br>
 </details>
@@ -271,9 +230,7 @@ We need to do exactly this kind of thing with our MEAN app: we need to setup our
 Why might it be a good idea to namespace our back-end routes under `api`?
 </summary>
 <br>
-```
 To avoid confusion between routes meant to serve html, and routes whose purpose it is to render our app's data as JSON
-```
 <br>
 <br>
 </details>
@@ -284,9 +241,7 @@ To avoid confusion between routes meant to serve html, and routes whose purpose 
 What is the significance of the response for our `delete` request?
 </summary>
 <br>
-```
 To provide a clue to the client that the request went through, and the delete was processed
-```
 <br>
 <br>
 </details>
@@ -297,19 +252,13 @@ To provide a clue to the client that the request went through, and the delete wa
 What is returned from our `put` request?
 </summary>
 <br>
-```
 A JSON object with our updated candidate's info!
-```
+
 <br>
 <br>
 </details>
 
 <br>
-In `index.js`: Candidates `Index` and `Show` Routes:
-![Index-and-Show-Api-Routes](./images/api-index-show.png)
-
-In `index.js`: Candidates `Delete` and `Update` Routes:
-![Delete-and-Update-Api-Routes](./images/api-CUD.png)
 
 ---
 
@@ -324,13 +273,9 @@ Great now that we have our back-end all setup to support requests from the front
 </summary>
 <br>
 <center>
-```
 A factory for candidates
-```
 </center>
-
 </details>
-
 <br>
 Go ahead and follow the outlined steps to add our app's Index functionality for candidates:
 
@@ -341,21 +286,7 @@ Go ahead and follow the outlined steps to add our app's Index functionality for 
 - Replace any references to hard-coded data with data from your DB, and display relevant information about each Candidate in the view
 
 <!-- Candidate Factory and Index Controller Commit Diff  -->
-<details>
-<summary>
-**Hint**: If you are having a tough time getting started, take a peek at the commit diff
-</summary>
-<br>
 <!-- Factory and Controller -->
-`public/js/app.js`
-![Adds-Candidate-Factory-and-Index-Controller](./images/index-ctrl.png)
-<!-- Candidates Index View -->
-`public/js/ng-views/index.html`
-![Adds-Candidate-Factory-and-Index-Controller](./images/index-view.png)
-<br>
-<br>
-</details>
-
 ---
 
 ### [Adds Show Route](https://github.com/ga-wdi-exercises/whenpresident/commit/bd3ecd8d54398bd614c1fe1261e71d4eb1cbb57e)
@@ -369,11 +300,10 @@ Now that our app is behaving more like a SPA, let's add support for the Show Rou
 - Define a new controller for `show`, make the appropriate query and display the correct data in the view
 
 In `public/js/ng-views/show.html`: We need to add a `show` view to display information about a candidate
-![Adds Show Route1](./images/show-view.png)
+
 
 
 In `public/js/app.js`: We need to define a new state, controller, template, and support the query for show
-![Adds Show Route2](./images/show-ctrl.png)
 
 Finally, we can delete our `views/candidates-show.hbs` file since Angular will be handling our show view from here on out.
 
@@ -392,15 +322,12 @@ Let's continue building out CRUD functionality, by adding the ability to create 
 - Update the create route in `index.js` to pass in `req.body` not `req.body.candidate`
 - Change our app's body-parser configuration to use JSON
 
-In `public/js/ng-views/index.html`: We need to add some UI
-![Adds Create Route](./images/create-view.png)
+In `public/js/ng-views/index.html`: We need to add some UI.
 
 
 In `public/js/app.js`: We need to update the index controller to add a definition for our `create` method
-![Adds Create Route2](./images/create-ctrl.png)
 
 Finally, we need to update the route in `index.js`:
-![Adds Create Route3](./images/create-server.png)
 
 ---
 
@@ -418,9 +345,7 @@ Moving onto the U in CRUD, let's build out our app's update functionality.
  What role does `body-parser` play in our application?
 </summary>
 <br>
-```
 Body-Parser is necessary middleware that allows us to access the body of post requests from ajax requests and html form submissions. In our app, we use to parse the request's body as JSON.
- ```
  <br>
  <br>
 </details>
@@ -431,16 +356,13 @@ Body-Parser is necessary middleware that allows us to access the body of post re
  What is two-way data-binding in Angular?
 </summary>
 <br>
-```
 Two-way data-binding in Angular apps is the automatic synchronization of data between the model and view components via viewmodels.
- ```
  <br>
  <br>
 </details>
 
 <br>
 
-![Adds Update Commit Diff](./images/update.png)
 
 ---
 
@@ -455,21 +377,9 @@ As we put some of the finishing touches on our app, let's add the functionality 
 - Pass in `$state` to your show controller than use it to redirect the user to the index root after deletion
 
 <!-- Delete Commit Diff -->
-<details>
-<summary>
- **Hint**: If you're having trouble getting started, take a peek at the commit diff
-</summary>
-<br>
-![Adds Candidate Delete](./images/destroy.png)
- <br>
- <br>
-</details>
 
-<br>
 
 Great, now we have completed full CRUD for `candidates` in our MEAN app.
-
-**If we have time**, we have a few more steps to build out the rest of our app's desired features:
 
 ---
 
@@ -488,9 +398,9 @@ Next up, we need to configure our app to be a true HTML5 SPA. Part of this proce
  What does changing the root route definition to `("/*")` do and why is it important for our app?
 </summary>
 <br>
-```
+
 We add the wildcard to our route, the `*`, so that all combinations of routes hit via the url manually will trigger our Angular SPA and allow us to use Angular's `html5Mode` to take over routing
-```
+
 <br>
 <br>
 </details>
@@ -501,9 +411,9 @@ We add the wildcard to our route, the `*`, so that all combinations of routes hi
  What is the purpose of adding `base href`?
 </summary>
 <br>
-```
+
 Adding the `base href` tag tells our app the base location from which links on a page should be made
-```
+
 <br>
 <br>
 </details>
@@ -534,9 +444,9 @@ Continuing with the work with our app's routes, we need a way to redirect any re
  What is the importance of the argument to `$urlRouterProvider.otherwise`?
 </summary>
 <br>
-```
+
 The url to redirect to if any request does not match our app's defined states
-```
+
 <br>
 <br>
 </details>
@@ -547,9 +457,9 @@ The url to redirect to if any request does not match our app's defined states
   If you had to guess, when is `$urlRouterProvider` activated?
 </summary>
 <br>
-```
+
 $urlRouterProvider is activated any time a state transition is made
-```
+
 <br>
 <br>
 </details>
