@@ -61,7 +61,7 @@ MongoDB is an open-source document database that provides high performance, high
 </summary>
 <br>
 
-Like ActiveRecord for Rails, Mongoose is an ORM used to represent data from a Mongo database as models in a Javascript back-end. This makes performing CRUD actions to collections and documents in our DB easier.
+Like ActiveRecord for Rails, Mongoose is an ODM used to represent data from a Mongo database as models in a Javascript back-end. This makes performing CRUD actions to collections and documents in our DB easier.
 
  <br>
  <br>
