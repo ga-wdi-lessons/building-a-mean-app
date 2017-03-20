@@ -9,7 +9,6 @@
 - Identify how different components of a MEAN app work together
 - Build a simple MEAN app with data persistence, and dynamic views  
 - Provide an example of a MEAN app
-- Explain when to choose the MEAN stack
 
 ---
 
