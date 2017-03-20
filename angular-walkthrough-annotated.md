@@ -300,11 +300,10 @@ Now that our app is behaving more like a SPA, let's add support for the Show Rou
 - Define a new controller for `show`, make the appropriate query and display the correct data in the view
 
 In `public/js/ng-views/show.html`: We need to add a `show` view to display information about a candidate
-![Adds Show Route1](./images/show-view.png)
+
 
 
 In `public/js/app.js`: We need to define a new state, controller, template, and support the query for show
-![Adds Show Route2](./images/show-ctrl.png)
 
 Finally, we can delete our `views/candidates-show.hbs` file since Angular will be handling our show view from here on out.
 
@@ -323,15 +322,12 @@ Let's continue building out CRUD functionality, by adding the ability to create 
 - Update the create route in `index.js` to pass in `req.body` not `req.body.candidate`
 - Change our app's body-parser configuration to use JSON
 
-In `public/js/ng-views/index.html`: We need to add some UI
-![Adds Create Route](./images/create-view.png)
+In `public/js/ng-views/index.html`: We need to add some UI.
 
 
 In `public/js/app.js`: We need to update the index controller to add a definition for our `create` method
-![Adds Create Route2](./images/create-ctrl.png)
 
 Finally, we need to update the route in `index.js`:
-![Adds Create Route3](./images/create-server.png)
 
 ---
 
