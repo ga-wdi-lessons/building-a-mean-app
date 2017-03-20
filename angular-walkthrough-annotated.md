@@ -143,9 +143,9 @@ In our first step, we need to configure our app's router, and define a state for
  If we want to configure our app's router, what additional Angular component do we need to define?
 </summary>
 <br>
-```
+
 .config
-```
+
 <br>
 <br>
 </details>
@@ -156,9 +156,9 @@ In our first step, we need to configure our app's router, and define a state for
  What dependencies are necessary for our `config` function?
 </summary>
 <br>
-```
+
 $stateProvider and a Router function
-```
+
 <br>
 <br>
 </details>
@@ -169,9 +169,9 @@ $stateProvider and a Router function
  What is the importance of the first argument for `.state`?
 </summary>
 <br>
-```
+
 The first argument is the name for our state, in this case "welcome"
-```
+
 <br>
 <br>
 </details>
@@ -199,15 +199,6 @@ app.use("/assets", express.static("public"));
 
 ![Adds Index Route Commit Diff](images/adds-index-route.png)
 
-**Bonus**:
-- Create and define a controller for your index state
-- Try populating your view with some hard coded data, don't worry about connecting to our DB just yet
-
----
-
-## Break (10 mins)
-
----
 
 ### [Makes API Routes for Candidates](https://github.com/ga-wdi-exercises/whenpresident/commit/a4207981999f0c9d3544aa5173b0c7ce7d6d4f7a)
 
@@ -261,19 +252,13 @@ To provide a clue to the client that the request went through, and the delete wa
 What is returned from our `put` request?
 </summary>
 <br>
-```
 A JSON object with our updated candidate's info!
-```
+
 <br>
 <br>
 </details>
 
 <br>
-In `index.js`: Candidates `Index` and `Show` Routes:
-![Index-and-Show-Api-Routes](./images/api-index-show.png)
-
-In `index.js`: Candidates `Delete` and `Update` Routes:
-![Delete-and-Update-Api-Routes](./images/api-CUD.png)
 
 ---
 
@@ -302,13 +287,6 @@ Go ahead and follow the outlined steps to add our app's Index functionality for 
 
 <!-- Candidate Factory and Index Controller Commit Diff  -->
 <!-- Factory and Controller -->
-`public/js/app.js`
-![Adds-Candidate-Factory-and-Index-Controller](./images/index-ctrl.png)
-<!-- Candidates Index View -->
-`public/js/ng-views/index.html`
-![Adds-Candidate-Factory-and-Index-Controller](./images/index-view.png)
-<br>
-<br>
 ---
 
 ### [Adds Show Route](https://github.com/ga-wdi-exercises/whenpresident/commit/bd3ecd8d54398bd614c1fe1261e71d4eb1cbb57e)
@@ -389,7 +367,6 @@ Two-way data-binding in Angular apps is the automatic synchronization of data be
 
 <br>
 
-![Adds Update Commit Diff](./images/update.png)
 
 ---
 
@@ -405,7 +382,6 @@ As we put some of the finishing touches on our app, let's add the functionality 
 
 <!-- Delete Commit Diff -->
 
-![Adds Candidate Delete](./images/destroy.png)
 
 Great, now we have completed full CRUD for `candidates` in our MEAN app.
 
