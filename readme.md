@@ -94,13 +94,11 @@ To get a sense of our built out application, let's look at the deployed [When Pr
 
 Playing around with our deployed app, we can see that it is a SPA, and there are no page refreshes, so Angular is doing the heaving lifting with the view. Also pay attention to the url, what's missing?
 
-**Q**. Where does adding Angular fit into the general request-response lifecycle of a full-stack application?
-
 ---
 
 ## How We’ll Get There
 
- You have already created a MEN app with WhenPresident. We are now going to walkthrough adding Angular to the app.  [whenpresident](https://github.com/ga-wdi-exercises/whenpresident)
+ You have already created a MEN app with WhenPresident. We are now going to walkthrough adding Angular to the app  [whenpresident](https://github.com/ga-wdi-exercises/whenpresident).
 
 [Code Walkthrough](angular-walkthrough-annotated.md)
 
