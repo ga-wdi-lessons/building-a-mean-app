@@ -215,7 +215,7 @@ app.use("/assets", express.static("public"));
 **Hint**: If you are having a tough time getting started, take a peek at the commit diff
 </summary>
 <br>
-![Adds Index Route Commit Diff](./images/adds-index-route.png)
+![Adds Index Route Commit Diff](images/adds-index-route.png)
 <br>
 <br>
 </details>
