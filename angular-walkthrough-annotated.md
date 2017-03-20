@@ -73,7 +73,7 @@ If there are no errors in the terminal, we can now navigate in our browser to: `
 
 Let's take a look at the last commit, ["Added Angular Dependencies"](https://github.com/ga-wdi-exercises/whenpresident/commit/2a97dfb7cc4258d489f318aa09707c0aef97e0ae) to get a sense of our starting point.
 
-We already have a starter file for Angular, `public/js/app.js`, in that file, let's add our initial module
+We already have a starter file for Angular, `public/js/app.js`, in that file we have our initial module:
 
 ```js
 angular
@@ -83,7 +83,7 @@ angular
   ])
 ```
 
-As well as are currently loading in Angular and its sub packages in `views/candidates.hbs`
+We also loaded in Angular and its sub packages in `views/candidates.hbs`
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular.min.js"></script>
@@ -91,7 +91,7 @@ As well as are currently loading in Angular and its sub packages in `views/candi
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
 <script src="/assets/js/app.js"></script>
 
-<div data-ng-app="candidates">
+<div data-ng-app="whenPresident">
   <main data-ui-view></main>
 </div>
 ```
