@@ -210,17 +210,9 @@ app.use("/assets", express.static("public"));
 - Add a link to your "index" state in your welcome page
 
 <!-- Index Route Commit Diff  -->
-<details>
-<summary>
-**Hint**: If you are having a tough time getting started, take a peek at the commit diff
-</summary>
-<br>
-![Adds Index Route Commit Diff](images/adds-index-route.png)
-<br>
-<br>
-</details>
 
-<br>
+![Adds Index Route Commit Diff](images/adds-index-route.png)
+
 **Bonus**:
 - Create and define a controller for your index state
 - Try populating your view with some hard coded data, don't worry about connecting to our DB just yet
@@ -316,13 +308,9 @@ Great now that we have our back-end all setup to support requests from the front
 </summary>
 <br>
 <center>
-```
 A factory for candidates
-```
 </center>
-
 </details>
-
 <br>
 Go ahead and follow the outlined steps to add our app's Index functionality for candidates:
 
@@ -333,11 +321,6 @@ Go ahead and follow the outlined steps to add our app's Index functionality for 
 - Replace any references to hard-coded data with data from your DB, and display relevant information about each Candidate in the view
 
 <!-- Candidate Factory and Index Controller Commit Diff  -->
-<details>
-<summary>
-**Hint**: If you are having a tough time getting started, take a peek at the commit diff
-</summary>
-<br>
 <!-- Factory and Controller -->
 `public/js/app.js`
 ![Adds-Candidate-Factory-and-Index-Controller](./images/index-ctrl.png)
@@ -346,8 +329,6 @@ Go ahead and follow the outlined steps to add our app's Index functionality for 
 ![Adds-Candidate-Factory-and-Index-Controller](./images/index-view.png)
 <br>
 <br>
-</details>
-
 ---
 
 ### [Adds Show Route](https://github.com/ga-wdi-exercises/whenpresident/commit/bd3ecd8d54398bd614c1fe1261e71d4eb1cbb57e)
