@@ -6,7 +6,7 @@
 
 In this exercise, our goal is to refactor a full stack express app with server side rendered views, into a Single Page App by adding Angular and using our back-end to render `JSON`.
 
-Solution code for this walkthrough can be found on the `angular-solution` branch of the [whenpresident repo](https://github.com/ga-wdi-exercises/whenpresident/tree/angular-solution)
+Solution code for this walkthrough can be found on the `angular-solution` branch of the [WhenPresident repo](https://github.com/ga-wdi-exercises/whenpresident/tree/angular-solution)
 
 ---
 
@@ -16,29 +16,21 @@ We are going to start from the solution code for the Express-Mongoose class, so 
 
 If you want to start fresh, clone down the repo:
 ```bash
-$ git clone git@github.com:ga-wdi-exercises/whenpresident.git
+$ git clone https://github.com/ga-wdi-exercises/whenpresident
 $ cd whenpresident
-```
-After you clone, or after you're working from your local copy:
-
-```bash
-# get the latest changes from github
-$ git fetch --all
 $ git checkout angular-starter
-$ git checkout -b myname-angular
 ```
-> Note: you can also add your fork as a remote or if you're working from your local copy, set ga-wdi-exercises repo as upstream, in order to fetch changes
 
 Great, now that we have our MEN app locally, let's take a few minutes to look around at our app's state and get familiar with the files and directories.
 
 <details>
 <summary>
-**Q**. If we just cloned down an express app, what else do we need to run to complete our setup?
+**Q**. If we just cloned down an Express app, what else do we need to run to complete our setup?
 </summary>
 <br>
-```
+
 We need to install our dependencies, and configure our database locally
- ```
+
 </details>
 
 ---
@@ -111,9 +103,7 @@ As well as are currently loading in Angular and its sub packages in `views/candi
 <summary>
  What is `data-ng-app` and what is it doing?</summary>
 <br>
-```
 data-ng-app is a directive that initializes our angular-app
- ```
 <br>
 <br>
 </details>
@@ -124,9 +114,7 @@ data-ng-app is a directive that initializes our angular-app
  What role does `data-ui-view` play in our application?
 </summary>
 <br>
-```
 data-ui-view is the placeholder for where all of our angular rendered html templates will go
- ```
  <br>
  <br>
 </details>
@@ -137,9 +125,7 @@ data-ui-view is the placeholder for where all of our angular rendered html templ
  Which route is currently loading our Angular app?
 </summary>
 <br>
-```
 Our root route, "/"
- ```
 <br>
 <br>
 </details>
@@ -237,9 +223,7 @@ So far, we still are using express to serve at least one server-side rendered vi
 **Q**: How did we do this in Rails?
 </summary>
 <br>
-```
 By building out our own API, then making ajax requests from the front-end to our API endpoints in order to keep the data in sync.
-```
 <br>
 <br>
 </details>
@@ -255,9 +239,7 @@ We need to do exactly this kind of thing with our MEAN app: we need to setup our
 Why might it be a good idea to namespace our back-end routes under `api`?
 </summary>
 <br>
-```
 To avoid confusion between routes meant to serve html, and routes whose purpose it is to render our app's data as JSON
-```
 <br>
 <br>
 </details>
@@ -268,9 +250,7 @@ To avoid confusion between routes meant to serve html, and routes whose purpose 
 What is the significance of the response for our `delete` request?
 </summary>
 <br>
-```
 To provide a clue to the client that the request went through, and the delete was processed
-```
 <br>
 <br>
 </details>
@@ -391,9 +371,7 @@ Moving onto the U in CRUD, let's build out our app's update functionality.
  What role does `body-parser` play in our application?
 </summary>
 <br>
-```
 Body-Parser is necessary middleware that allows us to access the body of post requests from ajax requests and html form submissions. In our app, we use to parse the request's body as JSON.
- ```
  <br>
  <br>
 </details>
@@ -404,9 +382,7 @@ Body-Parser is necessary middleware that allows us to access the body of post re
  What is two-way data-binding in Angular?
 </summary>
 <br>
-```
 Two-way data-binding in Angular apps is the automatic synchronization of data between the model and view components via viewmodels.
- ```
  <br>
  <br>
 </details>
@@ -428,21 +404,10 @@ As we put some of the finishing touches on our app, let's add the functionality 
 - Pass in `$state` to your show controller than use it to redirect the user to the index root after deletion
 
 <!-- Delete Commit Diff -->
-<details>
-<summary>
- **Hint**: If you're having trouble getting started, take a peek at the commit diff
-</summary>
-<br>
-![Adds Candidate Delete](./images/destroy.png)
- <br>
- <br>
-</details>
 
-<br>
+![Adds Candidate Delete](./images/destroy.png)
 
 Great, now we have completed full CRUD for `candidates` in our MEAN app.
-
-**If we have time**, we have a few more steps to build out the rest of our app's desired features:
 
 ---
 
@@ -461,9 +426,9 @@ Next up, we need to configure our app to be a true HTML5 SPA. Part of this proce
  What does changing the root route definition to `("/*")` do and why is it important for our app?
 </summary>
 <br>
-```
+
 We add the wildcard to our route, the `*`, so that all combinations of routes hit via the url manually will trigger our Angular SPA and allow us to use Angular's `html5Mode` to take over routing
-```
+
 <br>
 <br>
 </details>
@@ -474,9 +439,9 @@ We add the wildcard to our route, the `*`, so that all combinations of routes hi
  What is the purpose of adding `base href`?
 </summary>
 <br>
-```
+
 Adding the `base href` tag tells our app the base location from which links on a page should be made
-```
+
 <br>
 <br>
 </details>
@@ -507,9 +472,9 @@ Continuing with the work with our app's routes, we need a way to redirect any re
  What is the importance of the argument to `$urlRouterProvider.otherwise`?
 </summary>
 <br>
-```
+
 The url to redirect to if any request does not match our app's defined states
-```
+
 <br>
 <br>
 </details>
@@ -520,9 +485,9 @@ The url to redirect to if any request does not match our app's defined states
   If you had to guess, when is `$urlRouterProvider` activated?
 </summary>
 <br>
-```
+
 $urlRouterProvider is activated any time a state transition is made
-```
+
 <br>
 <br>
 </details>
