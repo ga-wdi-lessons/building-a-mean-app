@@ -283,7 +283,6 @@ Go ahead and follow the outlined steps to add our app's Index functionality for 
 
 - Create and define a new "Candidate" factory
 - Pass your factory as an argument to the index controller and use it to fetch all candidates
-- Replace any references to hard-coded data with data from your DB, and display relevant information about each Candidate in the view
 
 <!-- Candidate Factory and Index Controller Commit Diff  -->
 <!-- Factory and Controller -->
