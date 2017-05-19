@@ -89,7 +89,7 @@ Each of the technologies have their own benefits, but combined, there is power i
 
 ## Where We’re Going
 
-To get a sense of our built out application, let's look at the deployed [When President Solution](http://whenpresident.herokuapp.com). Playing around with our deployed app, we can see that it is a SPA, and there are no page refreshes, so Angular is doing the heaving lifting with the view. 
+To get a sense of our built out application, let's look at the deployed [When President Solution](https://serene-waters-65194.herokuapp.com/). Playing around with our deployed app, we can see that it is a SPA, and there are no page refreshes, so Angular is doing the heaving lifting with the view. 
 
 ---
 
