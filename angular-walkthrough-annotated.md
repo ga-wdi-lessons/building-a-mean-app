@@ -24,7 +24,7 @@ Great, now that we have our MEN app locally, let's take a few minutes to look ar
 
 <details>
   <summary>
-   <strong> If we just cloned down an Node app, what else do we need to run to complete our setup? </strong>
+    If we just cloned down an Node app, what else do we need to run to complete our setup?
   </summary>
   <br>
 
@@ -83,7 +83,7 @@ angular
   ])
 ```
 
-We also loaded in Angular and its sub packages in `views/candidates.hbs`
+We also loaded in Angular and its sub packages in `views/candidates.hbs`...
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular.min.js"></script>
@@ -140,49 +140,46 @@ In our first step, we need to configure our app's router, and define a state for
 **Questions:**
 <!-- Q: What other component do we need to define   -->
 <details>
-<summary>
- If we want to configure our app's router, what additional Angular component do we need to define?
-</summary>
-<br>
+  <summary>
+    What method do we need to start defining states on our Angular module?
+  </summary>
+  <br>
 
-.config
+  <code>.config</code>
 
-<br>
-<br>
+  <br>
+  <br>
 </details>
 
-<!-- Q: What dependencies are necessary for our config function   -->
 <details>
-<summary>
- What dependencies are necessary for our `config` function?
-</summary>
-<br>
+  <summary>
+     What dependency is necessary to use the method referenced above?
+  </summary>
+  <br>
 
-$stateProvider and a Router function
+  <code>ui.router</code>, which will bring in the <code>$stateProvider</code> service for use in our <code>Router</code> function.
 
-<br>
-<br>
+  <br>
+  <br>
 </details>
 
-<!-- Q: What is the importance of the first argument for .state? -->
 <details>
-<summary>
- What is the importance of the first argument for `.state`?
-</summary>
-<br>
+  <summary>
+    What is the importance of the first argument for <code>.state</code>?
+  </summary>
+  <br>
 
-The first argument is the name for our state, in this case "welcome"
+  The first argument is a string containing the name for our state, in this case <code>"welcome"</code>.
 
-<br>
-<br>
+  <br>
+  <br>
 </details>
 
-<!-- Q: Public Assets  -->
 <details>
-<summary>
- What line in our server's configuration specifies where to look for our app's static assets?
-</summary>
-app.use("/assets", express.static("public"));
+  <summary>
+    What line in our server's configuration specifies where to look for our app's static assets?
+  </summary>
+  <code>app.use("/assets", express.static("public"));</code>
 </details>
 
 ![Welcome-Page-Diff](./images/adds-welcome-page.png)
@@ -192,6 +189,7 @@ app.use("/assets", express.static("public"));
 ### [Adds Index Route](https://github.com/ga-wdi-exercises/whenpresident/commit/fa68cc105b67527c4986a721b51358dc16d82e2c)
 
 **Steps**:
+
     1. Define a new state for "index"
     2. Modify an existing file to be the template rendered at that state
     3. Add a link to your "index" state in your welcome page
@@ -210,13 +208,13 @@ So far, we still are using express to serve at least one server-side rendered vi
 
 <!-- BE comparison to Rails  -->
 <details>
-<summary>
-**Q**: How did we do this in Rails?
-</summary>
-<br>
-By building out our own API, then making ajax requests from the front-end to our API endpoints in order to keep the data in sync.
-<br>
-<br>
+  <summary>
+    How did we do this in Rails?
+  </summary>
+  <br>
+  By building out our own API, then making AJAX requests from the front-end to our API endpoints in order to keep the data in sync.
+  <br>
+  <br>
 </details>
 
 <br>
@@ -227,10 +225,10 @@ We need to do exactly this kind of thing with our MEAN app: we need to setup our
 <!-- Q: api namespace  -->
 <details>
   <summary>
-    Why might it be a good idea to namespace our back-end routes under `api`?
+    Why might it be a good idea to namespace our back-end routes under <code>api</code>?
   </summary>
   <br>
-  To avoid confusion between routes meant to serve html, and routes whose purpose it is to render our app's data as JSON
+  To eschew confusion between routes meant to serve html and routes that respond with JSON objects.
   <br>
   <br>
 </details>
@@ -238,10 +236,10 @@ We need to do exactly this kind of thing with our MEAN app: we need to setup our
 <!-- Q: Delete response  -->
 <details>
   <summary>
-    What is the significance of the response for our `delete` request?
+    What is the significance of the response for our <code>delete</code> request?
   </summary>
   <br>
-  To provide a clue to the client that the request went through, and the delete was processed
+  To provide a clue to the client that the request went through, and the delete was processed.
   <br>
   <br>
 </details>
@@ -249,7 +247,7 @@ We need to do exactly this kind of thing with our MEAN app: we need to setup our
 <!-- Q: Update response  -->
 <details>
   <summary>
-  Wha t is returned from our `put` request?
+    What is returned from our <code>put</code> request?
   </summary>
   <br>
   A JSON object with our updated candidate's info!
@@ -268,20 +266,18 @@ Great now that we have our back-end all setup to support requests from the front
 <!-- Q: Angular Factory  -->
 <details>
   <summary>
-    <strong> What Angular component do we need to setup in order to get data from our API? </strong>
+    What method do we use on our Angular module  setup in order to get data from our API?
   </summary>
-<br>
-<center>
-A factory for candidates
-</center>
+  <br>
+  A factory for candidates.
 </details>
+
 <br>
-Go ahead and follow the outlined steps to add our app's Index functionality for candidates:
 
-**Steps**:
+Follow the steps below to add an index view for candidates...
 
-- Create and define a new "Candidate" factory
-- Pass your factory as an argument to the index controller and use it to fetch all candidates
+    1. Create and define a new "Candidate" factory
+    2. Pass your factory as an argument to the index controller and use it to fetch all candidates
 
 <!-- Candidate Factory and Index Controller Commit Diff  -->
 <!-- Factory and Controller -->
@@ -293,15 +289,13 @@ Now that our app is behaving more like a SPA, let's add support for the Show Rou
 
 **Steps**:
 
-- Create a new state definition for `show`
--  Delete `views/show.hbs` and create a template to be rendered when we are at our `show` state
-- Define a new controller for `show`, make the appropriate query and display the correct data in the view
+    1. Create a new state definition for `show`.
+    2. Delete `views/show.hbs` and create a template to be rendered when we are at our `show` state.
+    3. Define a new controller for `show`, make the appropriate query and display the correct data in the view.
 
-In `public/js/ng-views/show.html`: We need to add a `show` view to display information about a candidate
+In `public/js/ng-views/show.html`: We need to add a `show` view to display information about a candidate.
 
-
-
-In `public/js/app.js`: We need to define a new state, controller, template, and support the query for show
+In `public/js/app.js`: We need to define a new state, controller, template, and support the query for show.
 
 Finally, we can delete our `views/candidates-show.hbs` file since Angular will be handling our show view from here on out.
 
@@ -311,21 +305,22 @@ Finally, we can delete our `views/candidates-show.hbs` file since Angular will b
 
 Let's continue building out CRUD functionality, by adding the ability to create a new Candidate...
 
-**Steps**:
+#### Steps
 
-- Update a the `index` view to include a form to create a new candidate
-- Update the index controller to add a definition for our `create` method
-  - It should persist the new candidate to the database
-  - Take the user to the new candidate's show page after it is saved
-- Update the create route in `index.js` to pass in `req.body` not `req.body.candidate`
-- Change our app's body-parser configuration to use JSON
+    1. Update a the `index` view to include a form for creating a new candidate.
+    2. Update the index controller to add a definition for our `create` method.
+       1. It should persist the new candidate to the database.
+       2. Take the user to the new candidate's show page after it is saved.
+    3. Update the create route in `index.js` to pass in `req.body` not `req.body.candidate`.
+    4. Change our app's body-parser configuration to use JSON.
 
-In `public/js/ng-views/index.html`: We need to add some UI.
+#### Remaining Tasks
 
+In `public/js/ng-views/index.html` we need to add some UI.
 
-In `public/js/app.js`: We need to update the index controller to add a definition for our `create` method
+In `public/js/app.js` we need to update the index controller to add a definition for our `create` method.
 
-Finally, we need to update the route in `index.js`:
+Next, we'll need to update the route in `index.js`.
 
 ---
 
@@ -339,24 +334,24 @@ Moving onto the U in CRUD, let's build out our app's update functionality.
 
 <!-- Q: body-parser  -->
 <details>
-<summary>
- What role does `body-parser` play in our application?
-</summary>
-<br>
-Body-Parser is necessary middleware that allows us to access the body of post requests from ajax requests and html form submissions. In our app, we use to parse the request's body as JSON.
- <br>
- <br>
+  <summary>
+    What role does <code>body-parser</code> play in our application?
+  </summary>
+  <br>
+  <code>body-parser</code> is necessary middleware that allows us to access the body of post requests from ajax requests and html form submissions. In our app, we use to parse the request's body as JSON.
+  <br>
+  <br>
 </details>
 
 <!-- Q: two-way data-binding  -->
 <details>
-<summary>
- What is two-way data-binding in Angular?
-</summary>
-<br>
-Two-way data-binding in Angular apps is the automatic synchronization of data between the model and view components via viewmodels.
- <br>
- <br>
+  <summary>
+    What is two-way data-binding in Angular?
+  </summary>
+  <br>
+  Two-way data-binding in Angular apps is the automatic synchronization of data between the model and view components via view-models.
+  <br>
+  <br>
 </details>
 
 <br>
@@ -370,14 +365,11 @@ As we put some of the finishing touches on our app, let's add the functionality 
 
 **Steps**:
 
-- Modify the "concede" button in `show.html` to run an `update` method on click
-- Define an `update` method in your `showCtrl` in `app.js`
-- Pass in `$state` to your show controller than use it to redirect the user to the index root after deletion
+  1. Modify the "concede" button in `show.html` to run an `update` method on click.
+  2. Define an `update` method in your `showCtrl` in `app.js`.
+  3. Pass in `$state` to your show controller than use it to redirect the user to the index root after deletion.
 
-<!-- Delete Commit Diff -->
-
-
-Great, now we have completed full CRUD for `candidates` in our MEAN app.
+Great, now we have completed full CRUD for `candidates` in our MEAN app!
 
 ---
 
@@ -392,35 +384,35 @@ Next up, we need to configure our app to be a true HTML5 SPA. Part of this proce
 
 <!-- Q. Root Route  -->
 <details>
-<summary>
- What does changing the root route definition to `("/*")` do and why is it important for our app?
-</summary>
-<br>
+  <summary>
+    What does changing the root route definition to <code>'/*'</code> do and why is it important for our app?
+  </summary>
+  <br>
 
-We add the wildcard to our route, the `*`, so that all combinations of routes hit via the url manually will trigger our Angular SPA and allow us to use Angular's `html5Mode` to take over routing
+  We add the wildcard (*) to our route so that all combinations of routes hit via the url manually will trigger our Angular SPA and allow us to use UI Router's <code>html5Mode</code> to take over routing.
 
-<br>
-<br>
+  <br>
+  <br>
 </details>
 
 <!-- Q. Base Href  -->
 <details>
-<summary>
- What is the purpose of adding `base href`?
-</summary>
-<br>
+  <summary>
+    What is the purpose of adding <code>base href</code>?
+  </summary>
+  <br>
 
-Adding the `base href` tag tells our app the base location from which links on a page should be made
+  Adding the `base href` tag tells our app the base location from which links on a page should be made
 
-<br>
-<br>
+  <br>
+  <br>
 </details>
 
 In `index.js`: change our app's root route...
 
 ![Change Root Url ](./images/html5-server.png)
 
-In `public/js/app.js`, we'll enable HTML5 mode, and add our app's base ref in `views/layout-main.hbs`...
+In `public/js/app.js`, we'll enable HTML5 mode. We'll also add our app's base ref in `views/layout-main.hbs`...
 
 ![Change Root Url ](./images/html5-angular.png)
 
@@ -430,34 +422,34 @@ In `public/js/app.js`, we'll enable HTML5 mode, and add our app's base ref in `v
 
 ### [Adds Redirect to Root Route](https://github.com/ga-wdi-exercises/whenpresident/commit/f1d4585aa70a0ee76ec7b4f960123f3aac0fd476)
 
-Continuing with the work with our app's routes, we need a way to redirect any request not defined in our app's states to a default state
+Continuing with the work with our app's routes, we need a way to redirect any request not defined in our app's states to a default state.
 
 **Questions**:
 
 <!-- Q. $urlRouterProvider.otherwise -->
 <details>
-<summary>
- What is the importance of the argument to `$urlRouterProvider.otherwise`?
-</summary>
-<br>
+  <summary>
+    What is the importance of the argument to <code>$urlRouterProvider.otherwise</code>?
+  </summary>
+  <br>
 
-The url to redirect to if any request does not match our app's defined states
+  The url to redirect to if any request does not match our app's defined states.
 
-<br>
-<br>
+  <br>
+  <br>
 </details>
 
 <!-- Q. $urlRouterProvider.otherwise -->
 <details>
-<summary>
-  If you had to guess, when is `$urlRouterProvider` activated?
-</summary>
-<br>
+  <summary>
+    If you had to guess, when is <code>$urlRouterProvider</code> activated?
+  </summary>
+  <br>
 
-$urlRouterProvider is activated any time a state transition is made
+  <code>$urlRouterProvider</code> makes its check any time a state transition is made.
 
-<br>
-<br>
+  <br>
+  <br>
 </details>
 
 <br>
@@ -465,4 +457,5 @@ $urlRouterProvider is activated any time a state transition is made
 ![adds-redirect-to-root-route](./images/redirect-root.png)
 
 ---
+
 > [Back to Main](readme.md)
