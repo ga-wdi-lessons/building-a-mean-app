@@ -12,9 +12,8 @@ Solution code for this walkthrough can be found on the `angular-solution` branch
 
 ### Setup
 
-We are going to start from the solution code for the Express-Mongoose class, so go ahead and run the below commands to checkout to the starter code for this exercise:
+We are going to start from the solution code for the Express-Mongoose class, so go ahead and run the below commands to checkout to the starter code for this exercise...
 
-If you want to start fresh, clone down the repo:
 ```bash
 $ git clone https://github.com/ga-wdi-exercises/whenpresident
 $ cd whenpresident
@@ -24,35 +23,36 @@ $ git checkout angular-starter
 Great, now that we have our MEN app locally, let's take a few minutes to look around at our app's state and get familiar with the files and directories.
 
 <details>
-<summary>
-**Q**. If we just cloned down an Express app, what else do we need to run to complete our setup?
-</summary>
-<br>
+  <summary>
+   <strong> If we just cloned down an Node app, what else do we need to run to complete our setup? </strong>
+  </summary>
+  <br>
 
-We need to install our dependencies, and configure our database locally
+  We need to install our dependencies. If the app uses a particular database, we'll also have to ensure that database is configured and running smoothly on our local machines.
 
 </details>
 
 ---
 
-To install our app's dependencies, run:
+To install our app's dependencies, run...
 
 ```bash
 $ npm install
 ```
 
-In another tab, let's run our mongo server
+In another tab, let's run our mongo server...
+
 ```bash
 $ mongod
 ```
 
-Then create our database and seed it locally:
+Then create our database and seed it locally...
 
 ```bash
 $ node db/seed.js
 ```
 
-Now lets start our server and make sure everything works
+Now lets start our server and make sure everything works...
 
 ```bash
 $ nodemon
@@ -73,7 +73,7 @@ If there are no errors in the terminal, we can now navigate in our browser to: `
 
 Let's take a look at the last commit, ["Added Angular Dependencies"](https://github.com/ga-wdi-exercises/whenpresident/commit/2a97dfb7cc4258d489f318aa09707c0aef97e0ae) to get a sense of our starting point.
 
-We already have a starter file for Angular, `public/js/app.js`, in that file we have our initial module:
+We already have a starter file for Angular, `public/js/app.js`, in that file we have our initial module...
 
 ```js
 angular
@@ -96,45 +96,46 @@ We also loaded in Angular and its sub packages in `views/candidates.hbs`
 </div>
 ```
 
-**Review Questions**:
+### Review Questions
 
 <!-- Q: ng-app  -->
 <details>
-<summary>
- What is `data-ng-app` and what is it doing?</summary>
-<br>
-data-ng-app is a directive that initializes our angular-app
-<br>
-<br>
+  <summary>
+    What is <code>data-ng-app</code> and what is it doing?
+  </summary>
+  <br>
+  <code>data-ng-app</code> is a directive that initializes our angular-app
+  <br>
+  <br>
 </details>
 
 <!-- Q: ui-view  -->
 <details>
-<summary>
- What role does `data-ui-view` play in our application?
-</summary>
-<br>
-data-ui-view is the placeholder for where all of our angular rendered html templates will go
- <br>
- <br>
+  <summary>
+    What role does <code>data-ui-view</code> play in our application?
+  </summary>
+  <br>
+  data-ui-view is the placeholder for where all of our angular rendered html templates will go
+  <br>
+  <br>
 </details>
 
 <!-- Q: root route  -->
 <details>
-<summary>
- Which route is currently loading our Angular app?
-</summary>
-<br>
-Our root route, "/"
-<br>
-<br>
+  <summary>
+    Which route is currently loading our Angular app?
+  </summary>
+  <br>
+  Our root route, <code> / </code>.
+  <br>
+  <br>
 </details>
 
 ---
 
 ### [Adds Welcome Page](https://github.com/ga-wdi-exercises/whenpresident/commit/039ef225db7ca933a72e3e587fd616e9242dd837)
 
-In our first step, we need to configure our app's router, and define a state for our app's `welcome-page`
+In our first step, we need to configure our app's router, and define a state for our app's `welcome-page`.
 
 **Questions:**
 <!-- Q: What other component do we need to define   -->
@@ -191,20 +192,19 @@ app.use("/assets", express.static("public"));
 ### [Adds Index Route](https://github.com/ga-wdi-exercises/whenpresident/commit/fa68cc105b67527c4986a721b51358dc16d82e2c)
 
 **Steps**:
-- Define a new state for "index"
-- Modify an existing file to be the template rendered at that state
-- Add a link to your "index" state in your welcome page
+    1. Define a new state for "index"
+    2. Modify an existing file to be the template rendered at that state
+    3. Add a link to your "index" state in your welcome page
 
 <!-- Index Route Commit Diff  -->
 
 ![Adds Index Route Commit Diff](images/adds-index-route.png)
 
-
 ### [Makes API Routes for Candidates](https://github.com/ga-wdi-exercises/whenpresident/commit/a4207981999f0c9d3544aa5173b0c7ce7d6d4f7a)
 
 Alright, let's review a little bit about what we want to accomplish when building out the Angular side of our application.  
 
-So far, we still are using express to serve at least one server-side rendered view, that loads and initializes our Angular app. From there, Angular takes over the view templating and routing throughout our SPA. Also, eventually we want our front-end to be able to sync with our back-end in order to persist data throughout our app.
+So far, we still are using express to serve at least one server-side rendered view, that loads and initializes our Angular app. From there, Angular takes over the view-templating and routing throughout our SPA. Also, eventually we want our front-end to be able to sync with our back-end in order to persist data throughout our app.
 
 > How can we do this?
 
@@ -226,36 +226,35 @@ We need to do exactly this kind of thing with our MEAN app: we need to setup our
 
 <!-- Q: api namespace  -->
 <details>
-<summary>
-Why might it be a good idea to namespace our back-end routes under `api`?
-</summary>
-<br>
-To avoid confusion between routes meant to serve html, and routes whose purpose it is to render our app's data as JSON
-<br>
-<br>
+  <summary>
+    Why might it be a good idea to namespace our back-end routes under `api`?
+  </summary>
+  <br>
+  To avoid confusion between routes meant to serve html, and routes whose purpose it is to render our app's data as JSON
+  <br>
+  <br>
 </details>
 
 <!-- Q: Delete response  -->
 <details>
-<summary>
-What is the significance of the response for our `delete` request?
-</summary>
-<br>
-To provide a clue to the client that the request went through, and the delete was processed
-<br>
-<br>
+  <summary>
+    What is the significance of the response for our `delete` request?
+  </summary>
+  <br>
+  To provide a clue to the client that the request went through, and the delete was processed
+  <br>
+  <br>
 </details>
 
 <!-- Q: Update response  -->
 <details>
-<summary>
-What is returned from our `put` request?
-</summary>
-<br>
-A JSON object with our updated candidate's info!
-
-<br>
-<br>
+  <summary>
+  Wha t is returned from our `put` request?
+  </summary>
+  <br>
+  A JSON object with our updated candidate's info!
+  <br>
+  <br>
 </details>
 
 <br>
@@ -268,9 +267,9 @@ Great now that we have our back-end all setup to support requests from the front
 
 <!-- Q: Angular Factory  -->
 <details>
-<summary>
-**Q**. What Angular component do we need to setup in order to get data from our API?
-</summary>
+  <summary>
+    <strong> What Angular component do we need to setup in order to get data from our API? </strong>
+  </summary>
 <br>
 <center>
 A factory for candidates
@@ -417,15 +416,13 @@ Adding the `base href` tag tells our app the base location from which links on a
 <br>
 </details>
 
-<br>  
-In `index.js`: change our app's root route
+In `index.js`: change our app's root route...
+
 ![Change Root Url ](./images/html5-server.png)
 
-In `public/js/app.js`: turn on HTML5 mode
+In `public/js/app.js`, we'll enable HTML5 mode, and add our app's base ref in `views/layout-main.hbs`...
 
 ![Change Root Url ](./images/html5-angular.png)
-
-In `views/layout-main.hbs`: add our app's base ref
 
 > For further reading: checkout [this link](https://github.com/ga-wdi-lessons/angular-routing#locationprovider) to the `$locationProvider` section in the `uiRouter` class
 
