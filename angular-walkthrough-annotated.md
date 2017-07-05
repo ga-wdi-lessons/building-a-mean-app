@@ -104,7 +104,7 @@ We also loaded in Angular and its sub packages in `views/candidates.hbs`
     What is <code>data-ng-app</code> and what is it doing?
   </summary>
   <br>
-  <code>data-ng-app</code> is a directive that initializes our angular-app
+  <code>data-ng-app</code> is a directive that initializes our AngularJS app.
   <br>
   <br>
 </details>
@@ -115,7 +115,7 @@ We also loaded in Angular and its sub packages in `views/candidates.hbs`
     What role does <code>data-ui-view</code> play in our application?
   </summary>
   <br>
-  data-ui-view is the placeholder for where all of our angular rendered html templates will go
+  <code>data-ui-view</code> is the placeholder for where all of our state-bound view-templates (defined in our <code>Router</code> function) will go.
   <br>
   <br>
 </details>
@@ -126,7 +126,7 @@ We also loaded in Angular and its sub packages in `views/candidates.hbs`
     Which route is currently loading our Angular app?
   </summary>
   <br>
-  Our root route, <code> / </code>.
+  Our root route, <code>/</code>.
   <br>
   <br>
 </details>
