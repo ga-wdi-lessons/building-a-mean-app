@@ -190,9 +190,9 @@ In our first step, we need to configure our app's router, and define a state for
 
 **Steps**:
 
-    1. Define a new state for "index"
-    2. Modify an existing file to be the template rendered at that state
-    3. Add a link to your "index" state in your welcome page
+  1. Define a new state for "index".
+  2. Modify an existing file to be the template rendered at that state.
+  3. Add a link to your "index" state in your welcome page.
 
 <!-- Index Route Commit Diff  -->
 
@@ -276,8 +276,8 @@ Great now that we have our back-end all setup to support requests from the front
 
 Follow the steps below to add an index view for candidates...
 
-    1. Create and define a new "Candidate" factory
-    2. Pass your factory as an argument to the index controller and use it to fetch all candidates
+  1. Create and define a new "Candidate" factory
+  2. Pass your factory as an argument to the index controller and use it to fetch all candidates
 
 <!-- Candidate Factory and Index Controller Commit Diff  -->
 <!-- Factory and Controller -->
@@ -289,9 +289,9 @@ Now that our app is behaving more like a SPA, let's add support for the Show Rou
 
 **Steps**:
 
-    1. Create a new state definition for `show`.
-    2. Delete `views/show.hbs` and create a template to be rendered when we are at our `show` state.
-    3. Define a new controller for `show`, make the appropriate query and display the correct data in the view.
+  1. Create a new state definition for `show`.
+  2. Delete `views/show.hbs` and create a template to be rendered when we are at our `show` state.
+  3. Define a new controller for `show`, make the appropriate query and display the correct data in the view.
 
 In `public/js/ng-views/show.html`: We need to add a `show` view to display information about a candidate.
 
@@ -307,12 +307,12 @@ Let's continue building out CRUD functionality, by adding the ability to create 
 
 #### Steps
 
-    1. Update a the `index` view to include a form for creating a new candidate.
-    2. Update the index controller to add a definition for our `create` method.
-       1. It should persist the new candidate to the database.
-       2. Take the user to the new candidate's show page after it is saved.
-    3. Update the create route in `index.js` to pass in `req.body` not `req.body.candidate`.
-    4. Change our app's body-parser configuration to use JSON.
+  1. Update a the `index` view to include a form for creating a new candidate.
+  2. Update the index controller to add a definition for our `create` method.
+      1. It should persist the new candidate to the database.
+      2. Take the user to the new candidate's show page after it is saved.
+  3. Update the create route in `index.js` to pass in `req.body` not `req.body.candidate`.
+  4. Change our app's body-parser configuration to use JSON.
 
 #### Remaining Tasks
 
